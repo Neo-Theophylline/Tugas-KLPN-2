@@ -7,6 +7,13 @@ use App\Http\Controllers\Frontend\ContactFrontendController;
 use App\Http\Controllers\Frontend\ServicesFrontendController;
 use App\Http\Controllers\Frontend\TestimonialsFrontendController;
 
+Route::get('/adminpanel/dashboard', function () {
+    return view('page.backend.Dashboard.index');
+});
+
+Route::get('/adminpanel/hero', function () {
+    return view('page.backend.Hero.index');
+});
 Route::get('',[HomeFrontendController::class ,'index'] )->name('home');
 Route::get('about',[AboutFrontendController::class ,'index'] );
 Route::get('services',[ServicesFrontendController::class ,'index'] );
