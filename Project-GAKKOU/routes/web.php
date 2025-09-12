@@ -21,6 +21,7 @@ Route::get('contact',[ContactFrontendController::class ,'index'] )->name('contac
 
                                      // BACKEND //
 
+<<<<<<< HEAD
 Route::get('adminpanel/dashboard',[DashboardBackendController::class ,'index'] )->name('admin.dasboard');
 
 Route::get('adminpanel/hero',[HeroBackendController::class ,'index'] )->name('admin.hero');
@@ -31,3 +32,9 @@ Route::get('adminpanel/about',[HeroBackendController::class ,'index'] )->name('a
 Route::get('adminpanel/about/create',[HeroBackendController::class ,'create'] )->name('admin.about.create');
 Route::get('adminpanel/about/edit',[HeroBackendController::class ,'edit'] )->name('admin.about.edit');
 
+=======
+Route::get('adminpanel/dashboard',[DashboardBackendController::class ,'index'] );
+Route::get('adminpanel/hero',[HeroBackendController::class ,'index'] );
+Route::get('adminpanel/hero/create',[HeroBackendController::class ,'create'] );
+Route::post('adminpanel/hero/store',[HeroBackendController::class ,'store'] );
+>>>>>>> 516270f05f03c3cd849cbbb72ea88c4827b80a12
