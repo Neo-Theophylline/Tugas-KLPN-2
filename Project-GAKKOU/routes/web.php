@@ -23,3 +23,5 @@ Route::get('contact',[ContactFrontendController::class ,'index'] );
 
 Route::get('adminpanel/dashboard',[DashboardBackendController::class ,'index'] );
 Route::get('adminpanel/hero',[HeroBackendController::class ,'index'] );
+Route::get('adminpanel/hero/create',[HeroBackendController::class ,'create'] );
+Route::post('adminpanel/hero/store',[HeroBackendController::class ,'store'] );
