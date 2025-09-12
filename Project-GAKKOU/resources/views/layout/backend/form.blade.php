@@ -21,15 +21,8 @@
     </div>
   </div>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-    @include('layout.backend.navbar')
-    <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-        @include('layout.backend.sidebar')
-
         @yield('content')
-
-        @include('layout.backend.footer')
     </div>
   </div>
   <!-- container-scroller -->
@@ -52,4 +45,3 @@
   <!-- End custom js for this page-->
 </body>
 </html>
-

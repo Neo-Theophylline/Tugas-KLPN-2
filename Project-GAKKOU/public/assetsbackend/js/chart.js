@@ -192,7 +192,7 @@ $(function() {
         gridLines: {
           display: false
         }
-      }],
+      }], 
       yAxes: [{
         gridLines: {
           display: false

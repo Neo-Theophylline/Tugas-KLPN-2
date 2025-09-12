@@ -11,4 +11,13 @@ class HeroBackendController extends Controller
     {
         return view('page.backend.Hero.index');
     }
+
+     public function create()
+    {
+        return view('page.backend.Hero.create');
+    }
+     public function edit()
+    {
+        return view('page.backend.Hero.edit');
+    }
 }
