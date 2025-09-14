@@ -26,7 +26,20 @@
     </div>
   </div>
   <!-- container-scroller -->
+    <script>
+        // ambil elemen
+        const fileInput = document.getElementById('fileInput');
+        const fileNameField = document.querySelector('.file-upload-info');
 
+        // saat file dipilih
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files.length > 0) {
+                fileNameField.value = this.files[0].name; // tampilkan nama file
+            } else {
+                fileNameField.value = "";
+            }
+        });
+    </script>
   <!-- base:js -->
   <script src="{{ asset('assetsbackend/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->

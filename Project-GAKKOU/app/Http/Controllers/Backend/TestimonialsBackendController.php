@@ -5,19 +5,19 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutBackendController extends Controller
+class TestimonialsBackendController extends Controller
 {
         public function index()
         {
-            return view('page.backend.About.index');
+            return view('page.backend.Testimonials.index');
         }
     
         public function create()
         {
-            return view('page.backend.About.create');
+            return view('page.backend.Testimonials.create');
         }
         public function edit()
         {
-            return view('page.backend.About.edit');
+            return view('page.backend.Testimonials.edit');
         }
 }

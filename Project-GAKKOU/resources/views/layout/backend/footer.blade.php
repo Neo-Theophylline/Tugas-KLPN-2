@@ -1,6 +1,3 @@
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
         <footer class="footer">
             <div class="card">
                 <div class="card-body">
@@ -11,5 +8,3 @@
                 </div>    
             </div>        
         </footer>
-        <!-- partial -->
-      </div>

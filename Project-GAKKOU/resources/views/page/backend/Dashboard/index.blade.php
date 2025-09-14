@@ -3,8 +3,7 @@
 @section('content')
     <!-- partial -->
 
-    <div class="main-panel">
-        <div class="content-wrapper">
+        
 
             {{-- Diagram dan Stat --}}
 
@@ -154,30 +153,10 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>#D5</td>
-                                        <td> Targeted effective; mobilize </td>
-                                        <td>Audrie Midyett</td>
-                                        <td>22 Aug 2019</td>
-                                        <td>$ 2455</td>
-                                        <td>1.2K</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                    Edit
-                                                    <i class="typcn typcn-edit btn-icon-append"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger btn-sm btn-icon-text">
-                                                    Delete
-                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        @endsection
+    @endsection

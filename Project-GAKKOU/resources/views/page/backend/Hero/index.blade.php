@@ -1,138 +1,88 @@
 @extends('layout.backend.app')
 @section('content')
-<<<<<<< HEAD
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="table-responsive pt-3">
-                            <table class="table table-striped project-orders-table table-layout-fixed text-wrap">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%;">ID</th>
-                                        <th style="width: 20%;">Photo</th>
-                                        <th style="width: 15%;">Title</th>
-                                        <th style="width: 35%;">Subtitle</th>
-                                        <th style="width: 20%;">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="align-middle">1</td>
-                                        <td class="align-middle">
-                                            <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
-                                                src="{{ asset('assetsbackend/images/faces/face5.jpg') }}" alt="Photo">
-                                        </td>
-                                        <td class="align-middle text-wrap">Lorem, ipsum dolor sit amet consectetur
-                                            adipisicing elit.
-                                            Inciduntnis commodi nostrum.
-                                        </td>
-                                        <td class="align-middle text-wrap">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Similique architecto impedit et aperiam. Teks ini panjang biar kelihatan wrap.
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <a href="{{ route('admin.hero.edit') }}" class="btn btn-success btn-sm btn-icon-text mr-2">Edit <i class="typcn typcn-edit btn-icon-append"></i></a>
-                                                <button type="button" class="btn btn-danger btn-sm btn-icon-text">
-                                                    Delete
-                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <label class="toggle-switch toggle-switch-success mb-0">
-                                                    <input type="checkbox" checked>
-                                                    <span class="toggle-slider round"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5" class="text-center">
-                                            <a href="{{ route('admin.hero.create') }}" class="btn btn-success btn-icon-text">
-                                                Create <i class="typcn typcn-edit btn-icon-append"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-=======
-      <div class="row">
-            <div class="col-md-15">
-              <div class="card">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
                 <div class="table-responsive pt-3">
-                  <table class="table table-striped project-orders-table">
-                    <thead>
-                      <tr>
-                        <th>Photo</th>
-                        <th>Title</th>
-                        <th>Subtitle</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($heroes as $hero)
-                      <tr>
-                        <td><img src="{{ asset('storage/'.$hero->photo) }}" width="60"></td>
-                        <td>{{$hero->title}}</td>
-                        <td>{{$hero->subtitle}}</td>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
-                              Edit
-                              <i class="typcn typcn-edit btn-icon-append"></i>                          
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm btn-icon-text">
-                              Delete
-                              <i class="typcn typcn-delete-outline btn-icon-append"></i>                          
-                            </button><br>
-                            <br>
-                            <label class="toggle-switch toggle-switch-success">
-                                    <input type="checkbox" checked>
-                                    <span class="toggle-slider round"></span>
-                            </label>      
-                          </div>
-                        </td>
-                      </tr>
-                      @endforeach
-                      <tr>
-                        <td>#D2</td>
-                        <td>Correlation natural resources silo</td>
-                        <td>Mitchel Dunford</td>
-                        <td>09 Oct 2019</td>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
-                              Edit
-                              <i class="typcn typcn-edit btn-icon-append"></i>                          
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm btn-icon-text">
-                              Delete
-                              <i class="typcn typcn-delete-outline btn-icon-append"></i>                          
-                            </button>
-                            <br>
-                            <label class="toggle-switch toggle-switch-success">
-                                    <input type="checkbox" checked>
-                                    <span class="toggle-slider round"></span>
-                            </label>      
-                          </div>
-                        </td>
-                      </tr>
-                      <tr  class="center">
-                        <td>
-                          <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
-                              Create
-                              <i class="typcn typcn-edit btn-icon-append"></i>                          
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
->>>>>>> 516270f05f03c3cd849cbbb72ea88c4827b80a12
+                    <table class="table table-striped project-orders-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;">ID</th>
+                                <th style="width: 20%;">Photo</th>
+                                <th style="width: 15%;">Title</th>
+                                <th style="width: 35%;">Subtitle</th>
+                                <th style="width: 20%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($heroes as $hero)
+                                <tr>
+                                    <td class="align-middle"
+                                        style="max-width: 80px; word-break: break-word; overflow-wrap: break-word; white-space: normal;">
+                                        {{ $hero->id }}
+                                    </td>
+
+                                    <td class="align-middle">
+                                        <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
+                                            src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
+                                    </td>
+
+                                    <td class="align-middle"
+                                        style="max-width: 150px; word-break: break-word; overflow-wrap: break-word; white-space: normal;">
+                                        {{ $hero->title }}
+                                    </td>
+
+                                    <td class="align-middle"
+                                        style="max-width: 250px; word-break: break-word; overflow-wrap: break-word; white-space: normal;">
+                                        {{ $hero->subtitle }}
+                                    </td>
+
+                                    <td class="align-middle">
+                                        {{-- Baris Tombol --}}
+                                        <div class="d-flex align-items-center justify-content-center mb-2">
+                                            {{-- Tombol Edit --}}
+                                            <a href="{{ route('admin.hero.edit', $hero->id) }}"
+                                                class="btn btn-success btn-sm d-flex align-items-center mr-2">
+                                                Edit <i class="typcn typcn-edit ml-1"></i>
+                                            </a>
+
+                                            {{-- Tombol Delete --}}
+                                            <form action="{{ route('admin.hero.destroy', $hero->id) }}" method="POST"
+                                                onsubmit="return confirm('Yakin mau hapus?');" class="mb-0">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="btn btn-danger btn-sm d-flex align-items-center">
+                                                    Delete <i class="typcn typcn-delete-outline ml-1"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        {{-- Toggle Switch --}}
+                                        <div class="d-flex justify-content-center">
+                                            <label class="toggle-switch toggle-switch-success mb-0">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider round"></span>
+                                            </label>
+                                        </div>
+                                        </td>
+
+
+                                </tr>
+                            @endforeach
+
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    {{-- Tombol Create --}}
+                                    <a href="{{ route('admin.hero.create') }}" class="btn btn-success btn-icon-text">
+                                        Create <i class="typcn typcn-plus btn-icon-append"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

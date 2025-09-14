@@ -9,7 +9,7 @@
                                     <tr>
                                         <th style="width: 10%;">ID</th>
                                         <th style="width: 20%;">Photo</th>
-                                        <th style="width: 50%;">Description</th>
+                                        <th style="width: 50%;">Name Account</th>
                                         <th style="width: 20%;">Actions</th>
                                     </tr>
                                 </thead>
@@ -49,7 +49,7 @@
                                     {{-- @endforeach --}}
                                     <tr>
                                         <td colspan="5" class="text-center">
-                                            <a href="{{ route('admin.about.create') }}"
+                                            <a href="{{ route('admin.hero.create') }}"
                                                 class="btn btn-success btn-icon-text">
                                                 Create <i class="typcn typcn-edit btn-icon-append"></i>
                                             </a>

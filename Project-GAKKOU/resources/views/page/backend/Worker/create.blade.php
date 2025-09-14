@@ -8,22 +8,19 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Title"
-                            name="title">
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Title">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Subtitle</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Subtitle"
-                            name="subtitle">
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Subtitle">
                     </div>
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo">
+                        <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
                             <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                             <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-primary" type="button"
-                                    onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                             </span>
                         </div>
                     </div>

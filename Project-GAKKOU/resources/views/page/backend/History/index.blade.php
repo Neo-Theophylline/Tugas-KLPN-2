@@ -30,8 +30,7 @@
                                                 <div class="d-flex align-items-center mb-2">
                                                     <button type="button"
                                                         class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                        Edit
-                                                        <i class="typcn typcn-edit btn-icon-append"></i>
+                                                        Edit  <i class="typcn typcn-edit btn-icon-append"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger btn-sm btn-icon-text">
                                                         Delete
@@ -49,7 +48,7 @@
                                     {{-- @endforeach --}}
                                     <tr>
                                         <td colspan="5" class="text-center">
-                                            <a href="{{ route('admin.about.create') }}"
+                                            <a href="{{ route('admin.history.create') }}"
                                                 class="btn btn-success btn-icon-text">
                                                 Create <i class="typcn typcn-edit btn-icon-append"></i>
                                             </a>
