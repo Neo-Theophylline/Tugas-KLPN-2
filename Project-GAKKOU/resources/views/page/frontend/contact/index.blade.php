@@ -54,11 +54,19 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="/adminpanel/contact/store" method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              @csrf
               <div class="row gy-4">
+                <div class="col-md-6">
+                  <input type="text" name="firstname" class="form-control" placeholder="Your First Name" required="">
+                </div>
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" name="lastname" class="form-control" placeholder="Your Last Name" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="phonenum" class="form-control" placeholder="Your Phone Number" required="">
                 </div>
 
                 <div class="col-md-6 ">

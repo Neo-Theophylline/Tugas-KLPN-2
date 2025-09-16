@@ -75,7 +75,7 @@
                                 <td colspan="5" class="text-center">
                                     {{-- Tombol Create --}}
                                     <a href="{{ route('admin.hero.create') }}" class="btn btn-success btn-icon-text">
-                                        Create <i class="typcn typcn-plus btn-icon-append"></i>
+                                        Create <i class="typcn typcn-edit ml-1"></i>
                                     </a>
                                 </td>
                             </tr>

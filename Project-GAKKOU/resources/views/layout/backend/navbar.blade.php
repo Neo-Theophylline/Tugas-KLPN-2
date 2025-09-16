@@ -19,16 +19,16 @@
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav mr-lg-2">
             <li class="nav-item ml-0">
-                <h4 class="mb-0">{{ request()->is('adminpanel/dashboard') ? 'Dashboard' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/hero') ? 'Hero' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/about') ? 'About Us' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/gallery') ? 'Gallery' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/service') ? 'Service' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/testimonials') ? 'Testimonials' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/history') ? 'History' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/worker') ? 'Worker' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/partner') ? 'Partner' : '' }}</h4>
-                <h4 class="mb-0">{{ request()->is('adminpanel/media') ? 'Media' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/dashboard') ? 'AdminPanel - Dashboard' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/hero') ? 'AdminPanel - Hero' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/about') ? 'AdminPanel - About Us' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/gallery') ? 'AdminPanel - Gallery' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/services') ? 'AdminPanel - Services' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/testimonials') ? 'AdminPanel - Testimonials' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/history') ? 'AdminPanel - History' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/worker') ? 'AdminPanel - Worker' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/partner') ? 'AdminPanel - Partner' : '' }}</h4>
+                <h4 class="mb-0">{{ request()->is('adminpanel/media') ? 'AdminPanel - Media' : '' }}</h4>
             </li>
         </ul>
     </div>

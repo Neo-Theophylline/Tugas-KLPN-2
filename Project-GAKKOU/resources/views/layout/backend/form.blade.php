@@ -41,6 +41,41 @@
         });
     </script>
   <!-- base:js -->
+  <style>
+    .star {
+        font-size: 30px;
+        cursor: pointer;
+        color: lightgray;
+        transition: 0.2s;
+    }
+    .star.selected {
+        color: gold;
+    }
+    .star:hover {
+        transform: scale(1.2);
+    }
+</style>
+
+<script>
+    const stars = document.querySelectorAll('.star');
+    const starsInput = document.getElementById('stars');
+
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            let value = this.getAttribute('data-value');
+            starsInput.value = value;
+
+            // reset semua
+            stars.forEach(s => s.classList.remove('selected'));
+
+            // kasih warna sesuai value
+            for (let i = 0; i < value; i++) {
+                stars[i].classList.add('selected');
+            }
+        });
+    });
+</script>
+
   <script src="{{ asset('assetsbackend/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->

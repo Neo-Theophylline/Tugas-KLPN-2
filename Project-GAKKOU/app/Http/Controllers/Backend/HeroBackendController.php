@@ -29,7 +29,7 @@ class HeroBackendController extends Controller
         $request->validate([
             'title'    => 'required|string|max:255',
             'subtitle' => 'required|string|max:255',
-            'photo'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'photo' => 'image',
         ]);
 
         // ✅ Simpan file ke storage/app/public/hero
@@ -65,7 +65,7 @@ class HeroBackendController extends Controller
         $request->validate([
             'title'    => 'required|string|max:255',
             'subtitle' => 'required|string|max:255',
-            'photo'    => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'photo' => 'image',
         ]);
 
         // ✅ Update field teks
@@ -89,16 +89,18 @@ class HeroBackendController extends Controller
 
     // 🔹 Hapus data Hero
     public function destroy($id)
-    {
-        $hero = Hero::findOrFail($id);
+{
+    $hero = Hero::findOrFail($id);
 
-        // ✅ Hapus foto jika ada di storage
-        if ($hero->photo && Storage::disk('public')->exists($hero->photo)) {
-            Storage::disk('public')->delete($hero->photo);
-        }
-
-        $hero->delete(); // ✅ Hapus data Hero dari DB
-
-        return redirect()->route('admin.hero')->with('success', 'Hero deleted successfully.');
+    // Hapus foto jika ada di storage
+    if ($hero->photo && Storage::disk('public')->exists($hero->photo)) {
+        Storage::disk('public')->delete($hero->photo);
     }
+
+    // Hapus data Hero dari DB
+    $hero->delete();
+
+    return redirect()->route('admin.hero')->with('success', 'Hero deleted successfully.');
+}
+
 }

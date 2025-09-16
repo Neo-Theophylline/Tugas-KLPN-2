@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="{{ route('admin.hero') }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

@@ -24,7 +24,7 @@
                         <label>File upload</label>
                         <input type="file" id="fileInput" style="display: none;" name="photo">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload New Image">
                             <span class="input-group-append">
                                 <button class="file-upload-browse btn btn-primary" type="button"
                                     onclick="document.getElementById('fileInput').click();">Upload</button>

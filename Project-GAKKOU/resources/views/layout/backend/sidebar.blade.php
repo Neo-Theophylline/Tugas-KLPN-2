@@ -36,8 +36,8 @@
       </a>
     </li>
 
-    <li class="nav-item {{ request()->is('adminpanel/testimonials') ? 'active' : '' }}">
-      <a class="nav-link"  href="testimonials">
+    <li class="nav-item {{ request()->is('adminpanel/testimonial') ? 'active' : '' }}">
+      <a class="nav-link"  href="testimonial">
         <i class="typcn typcn-compass menu-icon"></i>
         <span class="menu-title">Testimonials</span>
       </a>
@@ -68,6 +68,13 @@
       <a class="nav-link" href="media">
         <i class="typcn typcn-mortar-board menu-icon"></i>
         <span class="menu-title">Media Socials</span>
+      </a>
+    </li>
+
+    <li class="nav-item {{ request()->is('adminpanel/contact') ? 'active' : '' }}">
+      <a class="nav-link" href="contact">
+        <i class="typcn typcn-mortar-board menu-icon"></i>
+        <span class="menu-title">Contact</span>
       </a>
     </li>
   </ul>

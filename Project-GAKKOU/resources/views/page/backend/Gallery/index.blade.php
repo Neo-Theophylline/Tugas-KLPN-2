@@ -1,69 +1,77 @@
 @extends('layout.backend.app')
 @section('content')
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="table-responsive pt-3">
-                            <table class="table table-striped project-orders-table table-layout-fixed text-wrap">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%;">ID</th>
-                                        <th style="width: 20%;">Photo</th>
-                                        <th style="width: 15%;">Title</th>
-                                        <th style="width: 35%;">Subtitle</th>
-                                        <th style="width: 20%;">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{-- @foreach ($heroes as $hero) --}}
-                                        <tr>
-                                            <td class="align-middle">1</td>
-                                            <td class="align-middle">
-                                                {{-- <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
-                                                    src="{{ asset('storage/' . $hero->photo) }}"
-                                                     alt="Photo"> --}}
-                                            </td>
-                                            <td class="align-middle text-wrap">
-                                                  {{-- {{ $hero->title }} --}} 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="table-responsive pt-3">
+                    <table class="table table-striped project-orders-table table-layout-fixed text-wrap">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;">ID</th>
+                                <th style="width: 20%;">Photo</th>
+                                <th style="width: 15%;">Title</th>
+                                <th style="width: 35%;">Description</th>
+                                <th style="width: 20%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($galleries as $hero)
+                                <tr>
+                                    <td class="align-middle">1</td>
+                                    <td class="align-middle">
+                                        <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
+                                            src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
+                                    </td>
+                                    <td class="align-middle text-wrap">
+                                        {{ $hero->title }}
 
-                                            </td>
-                                            <td class="align-middle text-wrap">
-                                                  {{-- {{ $hero->title }} --}} 
+                                    </td>
+                                    <td class="align-middle text-wrap">
+                                        {{ $hero->description }}
 
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="d-flex align-items-center mb-2">
-                                                    <button type="button"
-                                                        class="btn btn-success btn-sm btn-icon-text mr-3">
-                                                        Edit
-                                                        <i class="typcn typcn-edit btn-icon-append"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger btn-sm btn-icon-text">
-                                                        Delete
-                                                        <i class="typcn typcn-delete-outline btn-icon-append"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="d-flex justify-content-center">
-                                                    <label class="toggle-switch toggle-switch-success mb-0">
-                                                        <input type="checkbox" checked>
-                                                        <span class="toggle-slider round"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    {{-- @endforeach --}}
-                                    <tr>
-                                        <td colspan="5" class="text-center">
-                                            <a href="{{ route('admin.gallery.create') }}"
-                                                class="btn btn-success btn-icon-text">
-                                                Create <i class="typcn typcn-edit btn-icon-append"></i>
+                                    </td>
+                                    <td class="align-middle">
+                                        {{-- Baris Tombol --}}
+                                        <div class="d-flex align-items-center justify-content-center mb-2">
+                                            {{-- Tombol Edit --}}
+                                            <a href="{{ route('admin.gallery.edit', $hero->id) }}"
+                                                class="btn btn-success btn-sm d-flex align-items-center mr-2">
+                                                Edit <i class="typcn typcn-edit ml-1"></i>
                                             </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+
+                                            {{-- Tombol Delete --}}
+                                            <form action="{{ route('admin.gallery.destroy', $hero->id) }}" method="POST"
+                                                onsubmit="return confirm('Yakin mau hapus?');" class="mb-0">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="btn btn-danger btn-sm d-flex align-items-center">
+                                                    Delete <i class="typcn typcn-delete-outline ml-1"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        {{-- Toggle Switch --}}
+                                        <div class="d-flex justify-content-center">
+                                            <label class="toggle-switch toggle-switch-success mb-0">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider round"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <a href="{{ route('admin.gallery.create') }}" class="btn btn-success btn-icon-text">
+                                        Create <i class="typcn typcn-edit btn-icon-append"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-    @endsection
+        </div>
+    </div>
+@endsection
