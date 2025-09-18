@@ -20,21 +20,23 @@
                         <input type="text" class="form-control" id="subtitle" name="subtitle"
                             value="{{ old('subtitle', $hero->subtitle) }}" placeholder="Subtitle">
                     </div>
+                    
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo">
+                        <input type="file" id="fileInput" style="display: none;" name="photo"
+                            onchange="previewImage(event)">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload New Image">
+                            <input type="text" class="form-control file-upload-info" disabled
+                                placeholder="Upload New Image">
                             <span class="input-group-append">
                                 <button class="file-upload-browse btn btn-primary" type="button"
                                     onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
                         </div>
                         <div>
-                          <br>
-                          @if ($hero->photo)
-                            <img src="{{ asset('storage/' . $hero->photo) }}" alt="Current Photo" height="100">
-                        @endif
+                            <br>
+                            <img id="preview" src="{{ $hero->photo ? asset('storage/' . $hero->photo) : '' }}"
+                                alt="Current Photo" height="100">
                         </div>
                     </div>
 

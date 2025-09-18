@@ -36,7 +36,8 @@
 
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo">
+                        <input type="file" id="fileInput" style="display: none;" name="photo"
+                            onchange="previewImage(event)">
                         <div class="input-group col-xs-12">
                             <input type="text" class="form-control file-upload-info" disabled
                                 placeholder="Upload New Image">
@@ -47,10 +48,8 @@
                         </div>
                         <div>
                             <br>
-                            @if ($testimonials->photo)
-                                <img src="{{ asset('storage/' . $testimonials->photo) }}" alt="Current Photo"
-                                    height="100">
-                            @endif
+                            <img id="preview" src="{{ $testimonials->photo ? asset('storage/' . $testimonials->photo) : '' }}"
+                                alt="Current Photo" height="100">
                         </div>
                     </div>
 

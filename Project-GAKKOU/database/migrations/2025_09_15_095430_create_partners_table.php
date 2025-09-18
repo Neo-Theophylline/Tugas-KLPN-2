@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('photo');
             $table->string('name');
+            $table->string('position');
             $table->text('description');
             $table->enum('is_active', ['active', 'inactive'])->default('inactive');
             $table->timestamps();

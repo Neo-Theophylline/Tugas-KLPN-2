@@ -26,7 +26,8 @@ class PartnerBackendController extends Controller
         // ✅ Ditambahkan validasi lebih detail
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'description' => 'required|string|max:120',
             'photo' => 'image',
         ]);
 
@@ -36,6 +37,7 @@ class PartnerBackendController extends Controller
         // ✅ Simpan data ke database
         Partner::create([
             'name' => $request->name,
+            'position' => $request->position,
             'description' => $request->description,
             'photo'    => $path, // simpan path file ke DB
         ]);
@@ -62,12 +64,14 @@ class PartnerBackendController extends Controller
         // ✅ Validasi dengan photo optional
         $request->validate([
             'name'    => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'description' => 'required|string|max:120',
             'photo' => 'image',
         ]);
 
         // ✅ Update field teks
         $partners->name    = $request->name;
+        $partners->position    = $request->position;
         $partners->description = $request->description;
 
         // ✅ Jika ada file baru, hapus file lama dan simpan baru

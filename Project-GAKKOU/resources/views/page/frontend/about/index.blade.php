@@ -16,102 +16,73 @@
         </div><!-- End Page Title -->
 
         <!-- About 2 Section -->
-        <section id="about-2" class="about-2 section">
+        @foreach ($histories as $history)
+            @foreach ($abouts as $about)
+                <section id="about-2" class="about-2 section">
 
-            <div class="container" data-aos="fade-up">
+                    <div class="container" data-aos="fade-up">
 
-                <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
 
-                    <div class="col-lg-5">
-                        <div class="about-img">
-                            <img src="assets/img/about-portrait.jpg" class="img-fluid" alt="">
-                        </div>
-                    </div>
+                            <div class="col-lg-5">
+                                <div class="about-img" style="width:380px; height:480px; overflow:hidden;">
 
-                    <div class="col-lg-7">
-                        <h3 class="pt-0 pt-lg-5">About and History SMK NEGERI RIZZ</h3>
+                                    <!-- Foto About -->
+                                    <img src="{{ asset('storage/' . $about->photo) }}" alt="" id="aboutPhoto"
+                                        style="width:100%; height:100%; object-fit:cover; object-position:center;">
 
-                        <!-- Tabs -->
-                        <ul class="nav nav-pills mb-3">
-                            <li><a class="nav-link active" data-bs-toggle="pill" href="#about-2-tab1">About us</a></li>
-                            <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab2">History</a></li>
-                        </ul><!-- End Tabs -->
-
-                        <!-- Tab Content -->
-                        <div class="tab-content">
-
-                            {{-- ABOUTUS SEC --}}
-
-                            <div class="tab-pane fade show active" id="about-2-tab1">
-
-                                <p class="fst-italic">ABOUT US</p>
-
-                                <div class="d-flex align-items-center mt-4">
-                                    <i class="bi bi-check2"></i>
-                                    <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
+                                    <!-- Foto History -->
+                                    <img src="{{ asset('storage/' . $history->photo) }}" alt="" id="historyPhoto"
+                                        class="d-none"
+                                        style="width:100%; height:100%; object-fit:cover; object-position:center;">
                                 </div>
-                                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi
-                                    dolorum non eveniet magni quaerat nemo et.</p>
-
-                                <div class="d-flex align-items-center mt-4">
-                                    <i class="bi bi-check2"></i>
-                                    <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                                </div>
-                                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur.
-                                    Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo
-                                    tempora. Quia et perferendis.</p>
-
-                                <div class="d-flex align-items-center mt-4">
-                                    <i class="bi bi-check2"></i>
-                                    <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
-                                </div>
-                                <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam officia
-                                    aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque magnam odit enim
-                                    quaerat. Vero error error voluptatem eum.</p>
-
                             </div>
-                            {{-- /ABOUTUS SEC --}}
 
-                            {{-- HISTORY SEC --}}
-                            <div class="tab-pane fade" id="about-2-tab2">
+                            <div class="col-lg-7">
+                                <h3 class="pt-0 pt-lg-5">About and History SMK NEGERI RIZZ</h3>
 
-                                <p class="fst-italic">HISTORIESSSSS</p>
+                                <!-- Tabs -->
+                                <ul class="nav nav-pills mb-3">
+                                    <li><a class="nav-link active" data-bs-toggle="pill" href="#about-2-tab1">About us</a>
+                                    </li>
+                                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab2">History</a></li>
+                                </ul><!-- End Tabs -->
 
-                                <div class="d-flex align-items-center mt-4">
-                                    <i class="bi bi-check2"></i>
-                                    <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-                                </div>
-                                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi
-                                    dolorum non eveniet magni quaerat nemo et.</p>
+                                <!-- Tab Content -->
+                                <div class="tab-content">
 
-                                <div class="d-flex align-items-center mt-4">
-                                    <i class="bi bi-check2"></i>
-                                    <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                                </div>
-                                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur.
-                                    Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo
-                                    tempora. Quia et perferendis.</p>
+                                    {{-- ABOUTUS SEC --}}
 
-                                <div class="d-flex align-items-center mt-4">
-                                    <i class="bi bi-check2"></i>
-                                    <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
-                                </div>
-                                <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam officia
-                                    aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque magnam odit enim
-                                    quaerat. Vero error error voluptatem eum.</p>
+                                    <div class="tab-pane fade show active" id="about-2-tab1">
+                                        <div class="d-flex align-items-center mt-4">
+                                        </div>
+                                        <p>{{ $about->description }}</p>
 
-                            </div>
-                            {{-- /HISTORY SEC --}}
+                                    </div>
+            @endforeach
+            {{-- /ABOUTUS SEC --}}
 
-                        </div>
+            {{-- HISTORY SEC --}}
+            <div class="tab-pane fade" id="about-2-tab2">
 
-                    </div>
-
+                <div class="d-flex align-items-center mt-4">
                 </div>
+                <p>{{ $history->description }}</p>
 
             </div>
+            {{-- /HISTORY SEC --}}
+        @endforeach
 
-        </section><!-- /About 2 Section -->
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </section>
+        <!-- /About 2 Section -->
 
         <!-- Stats Section -->
         <section id="stats" class="stats section light-background">
@@ -173,53 +144,22 @@
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="team-member d-flex align-items-start">
-                            <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                    @foreach ($workers as $worker)
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="team-member d-flex align-items-start">
+                                <div class="pic"
+                                    style="aspect-ratio: 1 / 1; width: 100%; max-width: 200px; overflow:hidden; border-radius:8px; flex-shrink:0;">
+                                    <img src="{{ asset('storage/' . $worker->photo) }}" class="img-fluid" alt=""
+                                        style="width:100%; height:100%; object-fit:{{ $worker->is_square ? 'contain' : 'cover' }}; object-position:center;">
+                                </div>
+                                <div class="member-info">
+                                    <h4>{{ $worker->name }}</h4>
+                                    <span>{{ $worker->position }}</span>
+                                    <p>{{ $worker->description }}</p>
+                                </div>
                             </div>
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="team-member d-flex align-items-start">
-                            <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
-                                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="team-member d-flex align-items-start">
-                            <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
-                                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="team-member d-flex align-items-start">
-                            <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
+                        </div><!-- End Team Member -->
+                    @endforeach
 
                 </div>
 
@@ -229,4 +169,22 @@
         <!-- /partnership -->
 
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const aboutPhoto = document.getElementById("aboutPhoto");
+            const historyPhoto = document.getElementById("historyPhoto");
+
+            // Event bootstrap tab
+            document.querySelector('[href="#about-2-tab1"]').addEventListener("shown.bs.tab", function() {
+                aboutPhoto.classList.remove("d-none");
+                historyPhoto.classList.add("d-none");
+            });
+
+            document.querySelector('[href="#about-2-tab2"]').addEventListener("shown.bs.tab", function() {
+                historyPhoto.classList.remove("d-none");
+                aboutPhoto.classList.add("d-none");
+            });
+        });
+    </script>
 @endsection

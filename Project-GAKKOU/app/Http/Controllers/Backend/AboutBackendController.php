@@ -24,7 +24,7 @@ class AboutBackendController extends Controller
         {
              // ✅ Ditambahkan validasi lebih detail
         $request->validate([
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
             'photo' => 'image',
         ]);
 
@@ -58,7 +58,7 @@ class AboutBackendController extends Controller
 
         // ✅ Validasi dengan photo optional
         $request->validate([
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
             'photo' => 'image',
         ]);
 

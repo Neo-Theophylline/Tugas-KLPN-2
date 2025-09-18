@@ -830,6 +830,8 @@ section,
   align-items: center;
   flex-direction: column;
   z-index: 3;
+  align-items: center !important;
+  text-align: center !important; /* pastikan teks rata tengah */
 }
 
 .hero h2 {

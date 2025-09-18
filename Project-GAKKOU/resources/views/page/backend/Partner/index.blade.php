@@ -7,9 +7,10 @@
                     <table class="table table-striped project-orders-table table-layout-fixed text-wrap">
                         <thead>
                             <tr>
-                                <th style="width: 10%;">ID</th>
+                                <th style="width: 5%;">ID</th>
                                 <th style="width: 20%;">Photo</th>
                                 <th style="width: 15%;">Name</th>
+                                <th style="width: 15%;">Position</th>
                                 <th style="width: 35%;">Description</th>
                                 <th style="width: 20%;">Actions</th>
                             </tr>
@@ -27,6 +28,10 @@
                                     </td>
                                     <td class="align-middle text-wrap">
                                         {{ $hero->name }}
+
+                                    </td>
+                                    <td class="align-middle text-wrap">
+                                        {{ $hero->position }}
 
                                     </td>
                                     <td class="align-middle text-wrap">
@@ -65,7 +70,7 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td colspan="5" class="text-center">
+                                <td colspan="6" class="text-center">
                                     <a href="{{ route('admin.partner.create') }}" class="btn btn-success btn-icon-text">
                                         Create <i class="typcn typcn-edit btn-icon-append"></i>
                                     </a>

@@ -13,15 +13,22 @@
                             name="name" value="{{ old('name', $partners->name) }}">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail3">Position</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="position"
+                            name="position" value="{{ old('position', $partners->position) }}">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail3">Description</label>
                         <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Desc"
                             name="description" value="{{ old('description', $partners->description) }}">
                     </div>
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo">
+                        <input type="file" id="fileInput" style="display: none;" name="photo"
+                            onchange="previewImage(event)">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled
+                                placeholder="Upload New Image">
                             <span class="input-group-append">
                                 <button class="file-upload-browse btn btn-primary" type="button"
                                     onclick="document.getElementById('fileInput').click();">Upload</button>
@@ -29,9 +36,8 @@
                         </div>
                         <div>
                             <br>
-                            @if ($partners->photo)
-                                <img src="{{ asset('storage/' . $partners->photo) }}" alt="Current Photo" height="100">
-                            @endif
+                            <img id="preview" src="{{ $partners->photo ? asset('storage/' . $partners->photo) : '' }}"
+                                alt="Current Photo" height="100">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

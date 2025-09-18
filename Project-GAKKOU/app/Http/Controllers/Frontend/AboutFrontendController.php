@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\About;
+use App\Models\Worker;
+use App\Models\History;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AboutFrontendController extends Controller
-{   
-       public function index()
+{
+           public function index()
     {
-        return view('page.frontend.about.index');
+        $abouts = About::all();
+        $histories = History::all();
+        $workers = Worker::all();
+
+        return view('page.frontend.about.index', compact( 'histories', 'abouts', 'workers'));
     }
 }

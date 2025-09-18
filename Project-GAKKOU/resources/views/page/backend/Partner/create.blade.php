@@ -8,13 +8,20 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Partner Names" name="name">
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Partner Names"
+                            name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Position</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="position"
+                            name="position">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Description</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Description" name="description">
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Description"
+                            name="description">
                     </div>
-                      <div class="form-group">
+                    <div class="form-group">
                         <label>File upload</label>
                         <input type="file" id="fileInput" style="display: none;" name="photo">
                         <div class="input-group col-xs-12">

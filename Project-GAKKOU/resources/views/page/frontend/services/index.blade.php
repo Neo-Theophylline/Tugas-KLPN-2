@@ -29,65 +29,22 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-          
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
+            @foreach ($services as $service)
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member d-flex align-items-start">
+                        <div class="pic"
+                            style="aspect-ratio: 1 / 1; width: 100%; max-width: 200px; overflow:hidden; border-radius:8px; flex-shrink:0;">
+                            <img src="{{ asset('storage/' . $service->photo) }}" class="img-fluid" alt=""
+                                style="width:100%; height:100%; object-fit:{{ $service->is_square ? 'contain' : 'cover' }}; object-position:center;">
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ $service->title }}</h4>
+                            <span></span>
+                            <p>{{ $service->description }}</p>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+            @endforeach
 
         </div>
 
