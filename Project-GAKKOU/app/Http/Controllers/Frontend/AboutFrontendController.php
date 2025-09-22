@@ -10,12 +10,12 @@ use App\Http\Controllers\Controller;
 
 class AboutFrontendController extends Controller
 {
-           public function index()
+    public function index()
     {
-        $abouts = About::limit(1)->get();
-        $histories = History::limit(1)->get();
-        $workers = Worker::all();
+        $abouts = About::where('is_active', 'active')->limit(1)->get();
+        $histories = History::where('is_active', 'active')->limit(1)->get();
+        $workers = Worker::where('is_active', 'active')->get();
 
-        return view('page.frontend.about.index', compact( 'histories', 'abouts', 'workers'));
+        return view('page.frontend.about.index', compact('histories', 'abouts', 'workers'));
     }
 }

@@ -30,7 +30,7 @@ class AboutBackendController extends Controller
             'photo' => 'image',
         ]);
 
-        // ✅ Simpan file ke storage/app/public/hero
+        // ✅ Simpan file ke storage/app/public/abouts
         $path = $request->file('photo')->store('about', 'public');
 
         // ✅ Simpan data ke database
@@ -101,5 +101,13 @@ class AboutBackendController extends Controller
         $abouts->delete();
 
         return redirect()->route('admin.about')->with('success', 'About deleted successfully.');
+    }
+    public function toggleStatus(Request $request)
+    {
+        $abouts = About::findOrFail($request->id);
+        $abouts->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $abouts->save();
+
+        return response()->json(['Succses' => true]);
     }
 }

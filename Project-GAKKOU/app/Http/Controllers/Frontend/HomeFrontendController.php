@@ -13,10 +13,10 @@ class HomeFrontendController extends Controller
 {
     public function index()
     {
-        $heroes = Hero::all();
-        $abouts = About::limit(1)->get();
-        $partners = Partner::all();
-        $galleries = Gallery::all();
+        $heroes = Hero::where('is_active', 'active')->get();
+        $abouts = About::where('is_active', 'active')->get();
+        $partners = Partner::where('is_active', 'active')->get();
+        $galleries = Gallery::where('is_active', 'active')->get();
 
         return view('page.frontend.home.index', compact('heroes', 'abouts', 'partners', 'galleries'));
     }

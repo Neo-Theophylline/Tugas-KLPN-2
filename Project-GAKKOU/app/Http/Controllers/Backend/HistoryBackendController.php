@@ -100,4 +100,12 @@ class HistoryBackendController extends Controller
 
         return redirect()->route('admin.history')->with('success', 'History deleted successfully.');
     }
+        public function toggleStatus(Request $request)
+    {
+        $histories = History::findOrFail($request->id);
+        $histories->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $histories->save();
+
+        return response()->json(['Succses' => true]);
+    }
 }

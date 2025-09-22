@@ -10,7 +10,7 @@ class TestimonialsFrontendController extends Controller
 {
            public function index()
     {
-        $testimonials = Testimonial::all();
+        $testimonials = Testimonial::where('is_active', 'active')->get();
 
         return view('page.frontend.testimonials.index', compact('testimonials'));    }
 }

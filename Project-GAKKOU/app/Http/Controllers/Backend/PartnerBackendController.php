@@ -104,4 +104,12 @@ class PartnerBackendController extends Controller
 
         return redirect()->route('admin.partner')->with('success', 'Partner deleted successfully.');
     }
+        public function toggleStatus(Request $request)
+    {
+        $partners = Partner::findOrFail($request->id);
+        $partners->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $partners->save();
+
+        return response()->json(['Succses' => true]);
+    }
 }

@@ -89,18 +89,27 @@ class HeroBackendController extends Controller
 
     // 🔹 Hapus data Hero
     public function destroy($id)
-{
-    $hero = Hero::findOrFail($id);
+    {
+        $hero = Hero::findOrFail($id);
 
-    // Hapus foto jika ada di storage
-    if ($hero->photo && Storage::disk('public')->exists($hero->photo)) {
-        Storage::disk('public')->delete($hero->photo);
+        // Hapus foto jika ada di storage
+        if ($hero->photo && Storage::disk('public')->exists($hero->photo)) {
+            Storage::disk('public')->delete($hero->photo);
+        }
+
+        // Hapus data Hero dari DB
+        $hero->delete();
+
+        return redirect()->route('admin.hero')->with('success', 'Hero deleted successfully.');
     }
 
-    // Hapus data Hero dari DB
-    $hero->delete();
+    public function toggleStatus(Request $request)
+{
+    $hero = Hero::findOrFail($request->id);
+    $hero->is_active = $request->status == 'true' ? 'active' : 'inactive';
+    $hero->save();
 
-    return redirect()->route('admin.hero')->with('success', 'Hero deleted successfully.');
+    return response()->json(['Succses' => true]);
 }
 
 }

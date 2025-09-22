@@ -90,18 +90,26 @@ class MediaBackendController extends Controller
     }
 
     // 🔹 Hapus data Media
-   public function destroy($id)
-{
-    $medias = Media::findOrFail($id);
+    public function destroy($id)
+    {
+        $medias = Media::findOrFail($id);
 
-    // Hapus foto jika ada di storage
-    if ($medias->photo && Storage::disk('public')->exists($medias->photo)) {
-        Storage::disk('public')->delete($medias->photo);
+        // Hapus foto jika ada di storage
+        if ($medias->photo && Storage::disk('public')->exists($medias->photo)) {
+            Storage::disk('public')->delete($medias->photo);
+        }
+
+        // Hapus data Hero dari DB
+        $medias->delete();
+
+        return redirect()->route('admin.media')->with('success', 'Media deleted successfully.');
     }
+        public function toggleStatus(Request $request)
+    {
+        $medias = Media::findOrFail($request->id);
+        $medias->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $medias->save();
 
-    // Hapus data Hero dari DB
-    $medias->delete();
-
-    return redirect()->route('admin.media')->with('success', 'Media deleted successfully.');
-}
+        return response()->json(['Succses' => true]);
+    }
 }

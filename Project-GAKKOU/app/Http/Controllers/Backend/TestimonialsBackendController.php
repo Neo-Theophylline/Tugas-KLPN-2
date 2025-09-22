@@ -104,4 +104,12 @@ class TestimonialsBackendController extends Controller
 
         return redirect()->route('admin.testimonial')->with('success', 'Testimonial deleted successfully.');
     }
+            public function toggleStatus(Request $request)
+    {
+        $testimonials = Testimonial::findOrFail($request->id);
+        $testimonials->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $testimonials->save();
+
+        return response()->json(['Succses' => true]);
+    }
 }

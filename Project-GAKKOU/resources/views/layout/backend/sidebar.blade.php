@@ -76,5 +76,12 @@
         <span class="menu-title">Contact</span>
       </a>
     </li>
+
+    <li class="nav-item {{ request()->is('adminpanel/users') ? 'active' : '' }}">
+      <a class="nav-link" href="users">
+        <i class="typcn typcn-mail menu-icon"></i>
+        <span class="menu-title">Users</span>
+      </a>
+    </li>
   </ul>
 </nav>

@@ -55,7 +55,8 @@
                                         {{-- Toggle Switch --}}
                                         <div class="d-flex justify-content-center">
                                             <label class="toggle-switch toggle-switch-success mb-0">
-                                                <input type="checkbox" checked>
+                                                <input type="checkbox" class="toggle-status" data-id="{{ $auth->id }}"
+                                                    {{ $auth->is_active === 'active' ? 'checked' : '' }}>
                                                 <span class="toggle-slider round"></span>
                                             </label>
                                         </div>
@@ -79,4 +80,30 @@
             </div>
         </div>
     </div>
+    <script>
+document.querySelectorAll('.toggle-status').forEach((el) => {
+    el.addEventListener('change', function() {
+        let status = this.checked;
+        let id = this.dataset.id;
+
+        fetch("{{ route('admin.users.toggle') }}", {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: id,
+                status: status
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                console.log("User status updated!");
+            }
+        });
+    });
+});
+</script>
 @endsection

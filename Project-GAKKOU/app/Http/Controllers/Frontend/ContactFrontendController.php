@@ -11,7 +11,7 @@ class ContactFrontendController extends Controller
 {
     public function indexFrontend()
     {
-        $medias = Media::all();
+        $medias = Media::where('is_active', 'active')->get();
 
         return view('page.frontend.Contact.index', compact( 'medias'));
     }

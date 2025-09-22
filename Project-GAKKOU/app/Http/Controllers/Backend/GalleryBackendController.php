@@ -100,4 +100,12 @@ class GalleryBackendController extends Controller
 
         return redirect()->route('admin.gallery')->with('success', 'Gallery deleted successfully.');
     }
+        public function toggleStatus(Request $request)
+    {
+        $galleries = Gallery::findOrFail($request->id);
+        $galleries->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $galleries->save();
+
+        return response()->json(['Succses' => true]);
+    }
 }

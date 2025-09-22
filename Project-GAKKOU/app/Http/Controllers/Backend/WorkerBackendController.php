@@ -90,18 +90,26 @@ class WorkerBackendController extends Controller
     }
 
     // 🔹 Hapus data Worker
-   public function destroy($id)
-{
-    $workers = Worker::findOrFail($id);
+    public function destroy($id)
+    {
+        $workers = Worker::findOrFail($id);
 
-    // Hapus foto jika ada di storage
-    if ($workers->photo && Storage::disk('public')->exists($workers->photo)) {
-        Storage::disk('public')->delete($workers->photo);
+        // Hapus foto jika ada di storage
+        if ($workers->photo && Storage::disk('public')->exists($workers->photo)) {
+            Storage::disk('public')->delete($workers->photo);
+        }
+
+        // Hapus data Hero dari DB
+        $workers->delete();
+
+        return redirect()->route('admin.worker')->with('success', 'Worker deleted successfully.');
     }
+                public function toggleStatus(Request $request)
+    {
+        $workers = Worker::findOrFail($request->id);
+        $workers->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $workers->save();
 
-    // Hapus data Hero dari DB
-    $workers->delete();
-
-    return redirect()->route('admin.worker')->with('success', 'Worker deleted successfully.');
-}
+        return response()->json(['Succses' => true]);
+    }
 }

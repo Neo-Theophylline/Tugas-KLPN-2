@@ -73,6 +73,7 @@
 </script>
 
 
+
     <!-- base:js -->
     <script src="{{ asset('assetsbackend/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->

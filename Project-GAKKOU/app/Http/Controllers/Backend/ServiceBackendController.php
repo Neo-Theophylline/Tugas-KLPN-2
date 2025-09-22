@@ -100,4 +100,12 @@ class ServiceBackendController extends Controller
 
         return redirect()->route('admin.service')->with('success', 'Service deleted successfully.');
     }
+        public function toggleStatus(Request $request)
+    {
+        $services = Service::findOrFail($request->id);
+        $services->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $services->save();
+
+        return response()->json(['Succses' => true]);
+    }
 }

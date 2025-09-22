@@ -10,7 +10,7 @@ class ServicesFrontendController extends Controller
 {
            public function index()
     {
-        $services = Service::all();
+        $services = Service::where('is_active', 'active')->get();
 
         return view('page.frontend.services.index', compact('services'));
     }

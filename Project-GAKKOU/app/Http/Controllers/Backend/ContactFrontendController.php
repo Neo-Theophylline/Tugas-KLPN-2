@@ -113,4 +113,12 @@ class ContactFrontendController extends Controller
 
         return redirect()->route('admin.contact')->with('success', 'Contact deleted successfully.');
     }
+        public function toggleStatus(Request $request)
+    {
+        $contacts = Contact::findOrFail($request->id);
+        $contacts->is_active = $request->status == 'true' ? 'active' : 'inactive';
+        $contacts->save();
+
+        return response()->json(['Succses' => true]);
+    }
 }
