@@ -12,8 +12,8 @@ class AboutFrontendController extends Controller
 {
            public function index()
     {
-        $abouts = About::all();
-        $histories = History::all();
+        $abouts = About::limit(1)->get();
+        $histories = History::limit(1)->get();
         $workers = Worker::all();
 
         return view('page.frontend.about.index', compact( 'histories', 'abouts', 'workers'));

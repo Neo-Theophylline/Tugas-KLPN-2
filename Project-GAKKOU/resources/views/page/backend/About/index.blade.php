@@ -9,7 +9,9 @@
                             <tr>
                                 <th style="width: 10%;">ID</th>
                                 <th style="width: 20%;">Photo</th>
-                                <th style="width: 50%;">Description</th>
+                                <th style="width: 10%;">Title</th>
+                                <th style="width: 20%;">Pre-Description</th>
+                                <th style="width: 20%;">Description</th>
                                 <th style="width: 20%;">Actions</th>
                             </tr>
                         </thead>
@@ -23,6 +25,14 @@
                                     <td class="align-middle">
                                         <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
                                             src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
+                                    </td>
+                                    <td class="align-middle text-wrap">
+                                        {{ $hero->title }}
+
+                                    </td>
+                                    <td class="align-middle text-wrap">
+                                        {{ $hero->prescription }}
+
                                     </td>
                                     <td class="align-middle text-wrap">
                                         {{ $hero->description }}
@@ -61,7 +71,7 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td colspan="5" class="text-center">
+                                <td colspan="10" class="text-center">
                                     <a href="{{ route('admin.about.create') }}" class="btn btn-success btn-icon-text">
                                         Create <i class="typcn typcn-edit btn-icon-append"></i>
                                     </a>

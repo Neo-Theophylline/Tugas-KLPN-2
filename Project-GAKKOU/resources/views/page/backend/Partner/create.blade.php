@@ -8,17 +8,17 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Partner Names"
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Double Space for New Line"
                             name="name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Position</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="position"
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Double Space for New Line"
                             name="position">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Description</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Description"
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Double Space for New Line"
                             name="description">
                     </div>
                     <div class="form-group">

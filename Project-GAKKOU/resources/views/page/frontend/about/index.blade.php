@@ -25,7 +25,8 @@
                         <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
 
                             <div class="col-lg-5">
-                                <div class="about-img" style="width:380px; height:480px; overflow:hidden;">
+                                <div class="about-img"
+                                    style="width:380px; height:480px; overflow:hidden; position:relative;">
 
                                     <!-- Foto About -->
                                     <img src="{{ asset('storage/' . $about->photo) }}" alt="" id="aboutPhoto"
@@ -36,6 +37,7 @@
                                         class="d-none"
                                         style="width:100%; height:100%; object-fit:cover; object-position:center;">
                                 </div>
+
                             </div>
 
                             <div class="col-lg-7">
@@ -43,9 +45,9 @@
 
                                 <!-- Tabs -->
                                 <ul class="nav nav-pills mb-3">
-                                    <li><a class="nav-link active" data-bs-toggle="pill" href="#about-2-tab1">About us</a>
+                                    <li><a class="nav-link active" data-bs-toggle="pill" href="#about-2-tab1">{!! str_replace('  ', '<br>', $about->title) !!}</a>
                                     </li>
-                                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab2">History</a></li>
+                                    <li><a class="nav-link" data-bs-toggle="pill" href="#about-2-tab2">{!! str_replace('  ', '<br>', $history->title) !!}</a></li>
                                 </ul><!-- End Tabs -->
 
                                 <!-- Tab Content -->
@@ -56,7 +58,7 @@
                                     <div class="tab-pane fade show active" id="about-2-tab1">
                                         <div class="d-flex align-items-center mt-4">
                                         </div>
-                                        <p>{{ $about->description }}</p>
+                                        <p>{!! str_replace('  ', '<br>', $about->description) !!}</p>
 
                                     </div>
             @endforeach
@@ -67,7 +69,7 @@
 
                 <div class="d-flex align-items-center mt-4">
                 </div>
-                <p>{{ $history->description }}</p>
+                <p>{!! str_replace('  ', '<br>', $history->description) !!}</p>
 
             </div>
             {{-- /HISTORY SEC --}}
@@ -153,7 +155,7 @@
                                         style="width:100%; height:100%; object-fit:{{ $worker->is_square ? 'contain' : 'cover' }}; object-position:center;">
                                 </div>
                                 <div class="member-info">
-                                    <h4>{{ $worker->name }}</h4>
+                                    <h4>{!! str_replace('  ', '<br>', $worker->name) !!}</h4>
                                     <span>{{ $worker->position }}</span>
                                     <p>{{ $worker->description }}</p>
                                 </div>

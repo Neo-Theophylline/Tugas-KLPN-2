@@ -46,7 +46,7 @@ class WorkerBackendController extends Controller
         return redirect()->route('admin.worker')->with('success', 'Worker created successfully.');
     }
 
-    // 🔹 Menampilkan form edit
+    // 🔹 Menampilkan form`  edit
     public function edit($id)
     {
         // ✅ Diganti findOrFail agar otomatis 404 kalau data tidak ada

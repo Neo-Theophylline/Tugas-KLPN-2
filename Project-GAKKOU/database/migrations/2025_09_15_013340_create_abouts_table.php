@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('abouts', function (Blueprint $table) {
-             $table->id();
+            $table->id();
             $table->string('photo');
+            $table->text('prescription');
             $table->text('description');
+            $table->string('title');
             $table->enum('is_active', ['active', 'inactive'])->default('inactive');
-             $table->timestamps();
+            $table->timestamps();
         });
     }
 

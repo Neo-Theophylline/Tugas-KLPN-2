@@ -14,7 +14,7 @@ class HomeFrontendController extends Controller
     public function index()
     {
         $heroes = Hero::all();
-        $abouts = About::all();
+        $abouts = About::limit(1)->get();
         $partners = Partner::all();
         $galleries = Gallery::all();
 

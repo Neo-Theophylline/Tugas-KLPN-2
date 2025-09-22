@@ -9,22 +9,24 @@ use Illuminate\Support\Facades\Storage;
 
 class AboutBackendController extends Controller
 {
-        public function index()
-        {
-            $abouts = About::all();
-            return view('page.backend.About.index', compact('abouts'));
-        }
-    
-        public function create()
-        {
-            return view('page.backend.About.create');
-        }
+    public function index()
+    {
+        $abouts = About::all();
+        return view('page.backend.About.index', compact('abouts'));
+    }
 
-        public function store(Request $request)
-        {
-             // ✅ Ditambahkan validasi lebih detail
+    public function create()
+    {
+        return view('page.backend.About.create');
+    }
+
+    public function store(Request $request)
+    {
+        // ✅ Ditambahkan validasi lebih detail
         $request->validate([
             'description' => 'required|string',
+            'prescription' => 'required|string',
+            'title' => 'required|string',
             'photo' => 'image',
         ]);
 
@@ -35,24 +37,26 @@ class AboutBackendController extends Controller
         About::create([
             'description' => $request->description,
             'photo'    => $path, // simpan path file ke DB
+            'title'       => $request->title,
+            'prescription'       => $request->prescription,
         ]);
 
         // ✅ Redirect ke index dengan flash message
         return redirect()->route('admin.about')->with('success', 'About created successfully.');
-        }
+    }
 
-        public function edit($id)
-        {
-              $abouts = About::findOrFail($id);
+    public function edit($id)
+    {
+        $abouts = About::findOrFail($id);
 
-            if ($abouts == null) {
+        if ($abouts == null) {
             return redirect()->route('admin.about')->with('error', 'About not found.');
         }
 
-            return view('page.backend.About.edit', compact('abouts'));
-        }
+        return view('page.backend.About.edit', compact('abouts'));
+    }
 
-        public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $abouts = About::findOrFail($id); // ✅ Diganti findOrFail
 
@@ -60,10 +64,14 @@ class AboutBackendController extends Controller
         $request->validate([
             'description' => 'required|string',
             'photo' => 'image',
+            'title' => 'required|string',
+            'prescription' => 'required|string',
         ]);
 
         // ✅ Update field teks
         $abouts->description = $request->description;
+        $abouts->title = $request->title;
+        $abouts->prescription = $request->prescription;
 
         // ✅ Jika ada file baru, hapus file lama dan simpan baru
         if ($request->hasFile('photo')) {
@@ -78,21 +86,20 @@ class AboutBackendController extends Controller
         $abouts->save(); // ✅ Simpan perubahan
 
         return redirect()->route('admin.about')->with('success', 'About updated successfully.');
-        }
-
-    public function destroy($id)
-{
-    $abouts = About::findOrFail($id);
-
-    // Hapus foto jika ada di storage
-    if ($abouts->photo && Storage::disk('public')->exists($abouts->photo)) {
-        Storage::disk('public')->delete($abouts->photo);
     }
 
-    // Hapus data Hero dari DB
-    $abouts->delete();
+    public function destroy($id)
+    {
+        $abouts = About::findOrFail($id);
 
-    return redirect()->route('admin.about')->with('success', 'About deleted successfully.');
-}
+        // Hapus foto jika ada di storage
+        if ($abouts->photo && Storage::disk('public')->exists($abouts->photo)) {
+            Storage::disk('public')->delete($abouts->photo);
+        }
 
+        // Hapus data Hero dari DB
+        $abouts->delete();
+
+        return redirect()->route('admin.about')->with('success', 'About deleted successfully.');
+    }
 }

@@ -14,8 +14,8 @@
                         @endif
                         <div class="carousel-container"
                             style="display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; text-align:center !important; width:100% !important;">
-                            <h2 style="width:100%; text-align:center;">{{ $hero->title }}</h2>
-                            <p style="width:100%; text-align:center;">{{ $hero->subtitle }}</p>
+                            <h2 style="width:100%; text-align:center;">{!! str_replace('  ', '<br>', $hero->title) !!}</h2>
+                            <p style="width:100%; text-align:center;">{!! str_replace('  ', '<br>', $hero->subtitle) !!}</p>
                         </div>
 
 
@@ -54,7 +54,7 @@
                 <div class="row gy-4">
                     @foreach ($abouts as $about)
                         <div class="col-lg-10 content" data-aos="fade-up" data-aos-delay="100">
-                            <p>{{ $about->description }}</p>
+                            <p>{!! str_replace('  ', '<br>', $about->prescription) !!}</p>
                             <a href="about" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
 
                         </div>
@@ -147,7 +147,8 @@
             <div class="container section-title" data-aos="fade-up">
                 <h2>Gallery</h2>
                 <p>Photo</p>
-            </div><!-- End Section Title -->
+            </div>
+            <!-- End Section Title -->
 
             {{-- FOTO --}}
             <div class="container">
@@ -159,9 +160,11 @@
                             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
 
                                 <!-- Judul -->
-                                <p style="margin-left:20px; margin-bottom:10px; text-align:left;">
-                                    {{ $gallery->title }}
-                                </p>
+                                <div>
+                                    <h6 style="margin-left:20px; margin-bottom:10px;">
+                                        {{ $gallery->title }}
+                                    </h6>
+                                </div>
 
                                 <!-- Foto di tengah -->
                                 <div style="display:flex; justify-content:center; margin-bottom:10px;">
@@ -171,10 +174,10 @@
 
                                 <!-- Deskripsi -->
                                 <div class="portfolio-info" style="text-align:left;">
-                                    <p style="margin-left:40px; margin-bottom:10px;">
+                                    <p style="margin-left:20px; margin-bottom:10px;">
                                         {{ $gallery->description }}
                                     </p>
-                                    <a href="{{ asset('storage/' . $gallery->photo) }}" title="Product 2"
+                                    <a href="{{ asset('storage/' . $gallery->photo) }}" title="{{ $gallery->title }}"
                                         data-gallery="portfolio-gallery-product" class="glightbox preview-link"
                                         style="display:inline-block; margin-left:40px;">
                                         <i class="bi bi-zoom-in"></i>

@@ -7,8 +7,16 @@
                 <form class="forms-sample" action="/adminpanel/about/store" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label for="exampleInputName1">Title</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="title" placeholder="Double Space for New Line">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Pre-description</label>
+                        <input type="text" class="form-control" id="exampleInputName1"  name="prescription" placeholder="Double Space for New Line">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputName1">Description</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Descript" name="description">
+                        <input type="textarea" class="form-control" id="exampleInputName1"  name="description" placeholder="Double Space for New Line">
                     </div>
                       <div class="form-group">
                         <label>File upload</label>

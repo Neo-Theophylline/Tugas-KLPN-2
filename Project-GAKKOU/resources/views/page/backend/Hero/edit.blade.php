@@ -12,13 +12,13 @@
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" class="form-control" id="title" name="title"
-                            value="{{ old('title', $hero->title) }}" placeholder="Title">
+                            value="{{ old('title', $hero->title) }}" placeholder="Double Space for New Line">
                     </div>
 
                     <div class="form-group">
                         <label for="subtitle">Subtitle</label>
                         <input type="text" class="form-control" id="subtitle" name="subtitle"
-                            value="{{ old('subtitle', $hero->subtitle) }}" placeholder="Subtitle">
+                            value="{{ old('subtitle', $hero->subtitle) }}" placeholder="Double Space for New Line">
                     </div>
                     
                     <div class="form-group">

@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Media;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
 
 class ContactFrontendController extends Controller
 {
     public function indexFrontend()
     {
-        return view('page.frontend.Contact.index');
+        $medias = Media::all();
+
+        return view('page.frontend.Contact.index', compact( 'medias'));
     }
 
     public function store(Request $request)

@@ -10,7 +10,7 @@
                 <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
                     <img src="{{ asset('assetsbackend/images/faces/face5.jpg') }}" alt="profile" />
                     <span class="nav-profile-name">FineeeeeShyyyyyytttttttttttttttttttttttttttttttttttttttttttt</span>
-                </a>
+                </a> 
             </li>
         </ul>
     </div>

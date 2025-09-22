@@ -8,11 +8,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Title" name="title">
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Double Space for New Line" name="title">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Description</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Subtitle" name="description">
+                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Double Space for New Line" name="description">
                     </div>
                       <div class="form-group">
                         <label>File upload</label>

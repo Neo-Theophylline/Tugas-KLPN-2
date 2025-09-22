@@ -8,10 +8,22 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Title</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="title" placeholder="Double Space for New Line"
+                            value="{{ old('title', $abouts->title) }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Pre-Description</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name="prescription" placeholder="Double Space for New Line"
+                            value="{{ old('prescription', $abouts->prescription) }}">
+                    </div>
+
                     <div class="form-group">
                         <label for="exampleInputName1">Description</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Descript"
-                            name="description" value="{{ old('description', $abouts->description) }}">
+                        <input type="text" class="form-control" id="exampleInputName1" name="description" placeholder="Double Space for New Line"
+                            value="{{ old('description', $abouts->description) }}">
                     </div>
 
                     <div class="form-group">
@@ -33,8 +45,8 @@
                         </div>
                     </div>
 
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a href="{{ route('admin.about') }}" class="btn btn-light">Cancel</a>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a href="{{ route('admin.about') }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>
