@@ -7,16 +7,16 @@
                       <span class="sitename">RIZZ SCHOOL</span>
                   </a>
                   <div class="footer-contact pt-3">
-                      <p>A108 Adam Street</p>
-                      <p>New York, NY 535022</p>
-                      <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                      <p><strong>Email:</strong> <span>info@example.com</span></p>
+                      <p>Jl. Mandor Martinem Roy</p>
+                      <p>Kota Banjar</p>
+                      <p class="mt-3"><strong>Phone:</strong> <span>+1 831 3312 6644</span></p>
+                      <p><strong>Email:</strong> <span>rizz@email.com</span></p>
                   </div>
                   <div class="social-links d-flex mt-4">
                       <a href=""><i class="bi bi-twitter-x"></i></a>
-                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-youtube"></i></a>
                       <a href=""><i class="bi bi-instagram"></i></a>
-                      <a href=""><i class="bi bi-linkedin"></i></a>
+                      <a href=""><i class="bi bi-tiktok"></i></a>
                   </div>
               </div>
 

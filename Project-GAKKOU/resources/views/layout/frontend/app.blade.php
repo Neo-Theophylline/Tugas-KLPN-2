@@ -40,12 +40,13 @@
 
 <body>
     <style>
-  /* Custom style untuk link aktif di footer */
-  .footer-links ul li a.active {
-      color: #D9232D !important;
-      font-weight: bold; /* optional biar lebih terlihat */
-  }
-</style>
+        /* Custom style untuk link aktif di footer */
+        .footer-links ul li a.active {
+            color: #D9232D !important;
+            font-weight: bold;
+            /* optional biar lebih terlihat */
+        }
+    </style>
     @include('layout.frontend.navbar')
     @yield('content')
     @include('layout.frontend.footer')
@@ -73,6 +74,7 @@
         <!-- Main JS File -->
         <script src="assets/js/main.js"></script>
     </div>
+    <script src="{{ asset('js/contact.js') }}"></script>
 
 </body>
 

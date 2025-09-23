@@ -33,9 +33,6 @@ class ContactFrontendController extends Controller
             'message' => 'required|string|max:255',
         ]);
 
-        // ✅ Simpan file ke storage/app/public/contact
-        $path = $request->file('photo')->store('contact', 'public');
-
         // ✅ Simpan data ke database
         Contact::create([
             'firstname' => $request->firstname,
@@ -47,7 +44,7 @@ class ContactFrontendController extends Controller
         ]);
 
         // ✅ Redirect ke index dengan flash message
-        return redirect()->route('admin.contact')->with('success', 'Contact created successfully.');
+        return redirect()->back()->with('success', 'Your message has been sent. Thank you!');
     }
 
     // 🔹 Menampilkan form edit
@@ -83,18 +80,6 @@ class ContactFrontendController extends Controller
         $contacts->phonenum = $request->phonenum;
         $contacts->message = $request->message;
 
-        // ✅ Jika ada file baru, hapus file lama dan simpan baru
-        if ($request->hasFile('photo')) {
-            if ($contacts->photo && Storage::disk('public')->exists($contacts->photo)) {
-                Storage::disk('public')->delete($contacts->photo); // hapus foto lama
-            }
-
-            $path = $request->file('photo')->store('contact', 'public');
-            $contacts->photo = $path;
-        }
-
-        $contacts->save(); // ✅ Simpan perubahan
-
         return redirect()->route('admin.contact')->with('success', 'Contact updated successfully.');
     }
 
@@ -103,17 +88,12 @@ class ContactFrontendController extends Controller
     {
         $contacts = Contact::findOrFail($id);
 
-        // Hapus foto jika ada di storage
-        if ($contacts->photo && Storage::disk('public')->exists($contacts->photo)) {
-            Storage::disk('public')->delete($contacts->photo);
-        }
-
         // Hapus data Hero dari DB
         $contacts->delete();
 
         return redirect()->route('admin.contact')->with('success', 'Contact deleted successfully.');
     }
-        public function toggleStatus(Request $request)
+    public function toggleStatus(Request $request)
     {
         $contacts = Contact::findOrFail($request->id);
         $contacts->is_active = $request->status == 'true' ? 'active' : 'inactive';

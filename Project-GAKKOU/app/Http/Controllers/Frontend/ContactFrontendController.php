@@ -29,7 +29,7 @@ class ContactFrontendController extends Controller
 
         Contact::create($request->only('firstname', 'lastname', 'email', 'subject', 'phonenum', 'message'));
 
-        return redirect()->route('contact.frontend')->with('success', 'Contact created successfully.');
+        return redirect()->route('contact.frontend')->with('success', 'Your message has been sent. Thank you!');
     }
 
     public function indexAdmin()

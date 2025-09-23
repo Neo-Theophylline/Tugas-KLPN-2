@@ -53,15 +53,6 @@
                                                 </button>
                                             </form>
                                         </div>
-
-                                        {{-- Toggle Switch --}}
-                                        <div class="d-flex justify-content-center">
-                                            <label class="toggle-switch toggle-switch-success mb-0">
-                                                <input type="checkbox" class="toggle-status" data-id="{{ $hero->id }}"
-                                                    {{ $hero->is_active === 'active' ? 'checked' : '' }}>
-                                                <span class="toggle-slider round"></span>
-                                            </label>
-                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

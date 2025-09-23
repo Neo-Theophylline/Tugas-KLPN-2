@@ -55,6 +55,11 @@
                     </div>
 
                     <div class="col-lg-8">
+                        @if (session('success'))
+                            <div class="alert alert-success text-center">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <form action="/adminpanel/contact/store" method="post" enctype="multipart/form-data"
                             class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                             @csrf
