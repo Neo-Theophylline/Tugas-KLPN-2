@@ -74,6 +74,33 @@
         });
     </script>
 
+    <script>
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+    const fileNameInput = document.querySelector('.file-upload-info');
+
+    fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            // Tampilkan nama file di input text
+            fileNameInput.value = file.name;
+
+            // Tampilkan preview gambar
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            fileNameInput.value = '';
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    });
+</script>
+
+
 
 
     <!-- base:js -->

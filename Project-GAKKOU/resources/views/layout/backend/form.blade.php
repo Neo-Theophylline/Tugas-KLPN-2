@@ -105,6 +105,31 @@
     <!-- Custom js for this page-->
     <script src="{{ asset('assetsbackend/js/dashboard.js') }}"></script>
     <!-- End custom js for this page-->
+    <script>
+function previewImage(event) {
+    const input = event.target;
+    const preview = document.getElementById('preview');
+    const fileNameInput = document.querySelector('.file-upload-info');
+
+    if (input.files && input.files[0]) {
+        // Tampilkan nama file di input text
+        fileNameInput.value = input.files[0].name;
+
+        // Tampilkan preview gambar
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        fileNameInput.value = '';
+        preview.src = '';
+        preview.style.display = 'none';
+    }
+}
+</script>
+
 </body>
 
 </html>
