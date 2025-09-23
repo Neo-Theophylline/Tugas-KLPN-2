@@ -6,29 +6,36 @@
                 <h4 class="card-title">Create Media</h4>
                 <form class="forms-sample" action="/adminpanel/media/store" method="post" enctype="multipart/form-data">
                     @csrf
+
                     <div class="form-group">
-                        <label for="exampleInputName1">Link</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Link" name="link">
+                        <label>Link</label>
+                        <input type="text" class="form-control" name="link">
                     </div>
+
                     <div class="form-group">
-                        <label for="exampleInputEmail3">Name Account</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="name Account" name="nameaccount">
+                        <label>Name Account</label>
+                        <input type="text" class="form-control" name="nameaccount">
                     </div>
+
                     <div class="form-group">
-                        <label for="exampleInputEmail3">Media Social Name</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="name Account" name="namemediasocial">
+                        <label>Media Social Name</label>
+                        <input type="text" class="form-control" name="namemediasocial">
                     </div>
-                      <div class="form-group">
+
+                    <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <input type="file" id="fileInput" style="display:none;" name="photo">
+                        <div class="input-group col-xs-12 mb-2">
+                            <input type="text" class="form-control file-upload-info" disabled>
                             <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-primary" type="button"
-                                    onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
                         </div>
+                        <div class="mt-2" style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
+                            <img id="preview" src="" style="max-width:100%; max-height:100%; display:none;" alt="Preview Photo">
+                        </div>
                     </div>
+
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <a href="{{ route('admin.media') }}" class="btn btn-light">Cancel</a>
                 </form>

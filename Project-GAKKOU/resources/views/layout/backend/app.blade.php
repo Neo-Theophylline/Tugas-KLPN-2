@@ -38,39 +38,41 @@
     <!-- container-scroller -->
 
     <style>
-    .star {
-        font-size: 30px;
-        cursor: pointer;
-        color: lightgray;
-        transition: 0.2s;
-    }
-    .star.selected {
-        color: gold;
-    }
-    .star:hover {
-        transform: scale(1.2);
-    }
-</style>
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: lightgray;
+            transition: 0.2s;
+        }
 
-<script>
-    const stars = document.querySelectorAll('.star');
-    const starsInput = document.getElementById('stars');
+        .star.selected {
+            color: gold;
+        }
 
-    stars.forEach(star => {
-        star.addEventListener('click', function() {
-            let value = this.getAttribute('data-value');
-            starsInput.value = value;
+        .star:hover {
+            transform: scale(1.2);
+        }
+    </style>
 
-            // reset semua
-            stars.forEach(s => s.classList.remove('selected'));
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const starsInput = document.getElementById('stars');
 
-            // kasih warna sesuai value
-            for (let i = 0; i < value; i++) {
-                stars[i].classList.add('selected');
-            }
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                let value = this.getAttribute('data-value');
+                starsInput.value = value;
+
+                // reset semua
+                stars.forEach(s => s.classList.remove('selected'));
+
+                // kasih warna sesuai value
+                for (let i = 0; i < value; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 
 
@@ -90,6 +92,18 @@
     <!-- Custom js for this page-->
     <script src="{{ asset('assetsbackend/js/dashboard.js') }}"></script>
     <!-- End custom js for this page-->
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('preview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+    
 </body>
 
 </html>

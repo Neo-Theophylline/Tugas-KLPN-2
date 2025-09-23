@@ -10,33 +10,28 @@
                     @method('PUT')
 
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            value="{{ old('title', $hero->title) }}" placeholder="Double Space for New Line">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title" value="{{ old('title', $hero->title) }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="subtitle">Subtitle</label>
-                        <input type="text" class="form-control" id="subtitle" name="subtitle"
-                            value="{{ old('subtitle', $hero->subtitle) }}" placeholder="Double Space for New Line">
+                        <label>Subtitle</label>
+                        <input type="text" class="form-control" name="subtitle" value="{{ old('subtitle', $hero->subtitle) }}">
                     </div>
                     
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo"
-                            onchange="previewImage(event)">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled
-                                placeholder="Upload New Image">
+                        <input type="file" id="fileInput" style="display:none;" name="photo">
+                        <div class="input-group col-xs-12 mb-2">
+                            <input type="text" class="form-control file-upload-info" disabled>
                             <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-primary" type="button"
-                                    onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
                         </div>
-                        <div>
-                            <br>
-                            <img id="preview" src="{{ $hero->photo ? asset('storage/' . $hero->photo) : '' }}"
-                                alt="Current Photo" height="100">
+                        <div class="mt-2" style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
+                            <img id="preview" src="{{ $hero->photo && file_exists(public_path('storage/' . $hero->photo)) ? asset('storage/' . $hero->photo) : '' }}"
+                                style="max-width:100%; max-height:100%; display:{{ $hero->photo && file_exists(public_path('storage/' . $hero->photo)) ? 'block' : 'none' }};" 
+                                alt="Preview Photo">
                         </div>
                     </div>
 

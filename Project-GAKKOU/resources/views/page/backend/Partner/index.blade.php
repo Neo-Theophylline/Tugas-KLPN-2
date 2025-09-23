@@ -89,7 +89,7 @@ document.querySelectorAll('.toggle-status').forEach((el) => {
         let status = this.checked;
         let id = this.dataset.id;
 
-        fetch("{{ route('admin.hero.toggle') }}", {
+        fetch("{{ route('admin.partner.toggle') }}", {
             method: "POST",
             headers: {
                 "X-CSRF-TOKEN": "{{ csrf_token() }}",

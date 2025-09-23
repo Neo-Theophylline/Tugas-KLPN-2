@@ -4,44 +4,36 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Edit About</h4>
-                <form class="forms-sample" action="{{ route('admin.about.update', $abouts->id) }}" method="post"
-                    enctype="multipart/form-data">
+                <form class="forms-sample" action="{{ route('admin.about.update', $abouts->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div class="form-group">
-                        <label for="exampleInputName1">Title</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="title" placeholder="Double Space for New Line"
-                            value="{{ old('title', $abouts->title) }}">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title" value="{{ old('title', $abouts->title) }}">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputName1">Pre-Description</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="prescription" placeholder="Double Space for New Line"
-                            value="{{ old('prescription', $abouts->prescription) }}">
+                        <label>Pre-Description</label>
+                        <input type="text" class="form-control" name="prescription" value="{{ old('prescription', $abouts->prescription) }}">
                     </div>
-
                     <div class="form-group">
-                        <label for="exampleInputName1">Description</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="description" placeholder="Double Space for New Line"
-                            value="{{ old('description', $abouts->description) }}">
+                        <label>Description</label>
+                        <input type="text" class="form-control" name="description" value="{{ old('description', $abouts->description) }}">
                     </div>
 
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo"
-                            onchange="previewImage(event)">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled
-                                placeholder="Upload New Image">
+                        <input type="file" id="fileInput" style="display:none;" name="photo">
+                        <div class="input-group col-xs-12 mb-2">
+                            <input type="text" class="form-control file-upload-info" disabled>
                             <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-primary" type="button"
-                                    onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
                         </div>
-                        <div>
-                            <br>
-                            <img id="preview" src="{{ $abouts->photo ? asset('storage/' . $abouts->photo) : '' }}"
-                                alt="Current Photo" height="100">
+                        <div class="mt-2" style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
+                            <img id="preview" src="{{ $abouts->photo && file_exists(public_path('storage/' . $abouts->photo)) ? asset('storage/' . $abouts->photo) : '' }}" 
+                                style="max-width:100%; max-height:100%; display:{{ $abouts->photo && file_exists(public_path('storage/' . $abouts->photo)) ? 'block' : 'none' }};" 
+                                alt="Preview Photo">
                         </div>
                     </div>
 

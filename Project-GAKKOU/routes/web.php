@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\PartnerBackendController;
 use App\Http\Controllers\Backend\ServiceBackendController;
 use App\Http\Controllers\Frontend\AboutFrontendController;
 use App\Http\Controllers\Backend\DashboardBackendController;
+use App\Http\Controllers\Backend\StatisticBackendController;
 use App\Http\Controllers\Frontend\ContactFrontendController;
 use App\Http\Controllers\Frontend\ServicesFrontendController;
 use App\Http\Controllers\Backend\TestimonialsBackendController;
@@ -27,6 +28,7 @@ Route::get('', [HomeFrontendController::class, 'index'])->name('home');
 Route::get('about', [AboutFrontendController::class, 'index'])->name('about');
 Route::get('services', [ServicesFrontendController::class, 'index'])->name('services');
 Route::get('testimonials', [TestimonialsFrontendController::class, 'index'])->name('testimonials');
+
 // CONTACT //
 Route::get('contact', [ContactFrontendController::class, 'indexFrontend'])->name('contact.frontend');
 Route::get('adminpanel/contact/{id}', [ContactFrontendController::class, 'show'])->name('admin.contact.show');
@@ -37,8 +39,19 @@ Route::post('adminpanel/contact/store', [ContactFrontendController::class, 'stor
 
 // BACKEND //
 Route::middleware('auth')->prefix('adminpanel')->group(function () {
-// DASHBOARD //
-Route::get('/dashboard', [DashboardBackendController::class, 'index'])->name('admin.dasboard');
+
+// PROFILE //
+Route::get('/profile', [UserController::class, 'profile'])->name('users.profile');
+
+// USER MANAGEMENT //
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('adminpanel/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::post('/users/toggle-status', [UserController::class, 'toggleStatus'])->name('admin.users.toggle');
+
 // HERO //
 Route::get('/hero', [HeroBackendController::class, 'index'])->name('admin.hero');
 Route::get('/hero/create', [HeroBackendController::class, 'create'])->name('admin.hero.create');
@@ -120,15 +133,14 @@ Route::delete('/worker/{id}', [WorkerBackendController::class, 'destroy'])->name
 Route::post('/worker/store', [WorkerBackendController::class, 'store']);
 Route::post('/worker/toggle-status', [WorkerBackendController::class, 'toggleStatus'])->name('admin.worker.toggle');
 
-
-// USER MANAGEMENT //
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-Route::post('/users/toggle-status', [UserController::class, 'toggleStatus'])->name('admin.users.toggle');
+// STATISTIC //
+Route::get('/statistic', [StatisticBackendController::class, 'index'])->name('admin.statistic');
+Route::get('/statistic/create', [StatisticBackendController::class, 'create'])->name('admin.statistic.create');
+Route::get('/statistic/{id}/edit', [StatisticBackendController::class, 'edit'])->name('admin.statistic.edit');
+Route::put('/statistic/{id}/update', [StatisticBackendController::class, 'update'])->name('admin.statistic.update');
+Route::delete('/statistic/{id}', [StatisticBackendController::class, 'destroy'])->name('admin.statistic.destroy');
+Route::post('/statistic/store', [StatisticBackendController::class, 'store']);
+Route::post('/statistic/toggle-status', [StatisticBackendController::class, 'toggleStatus'])->name('admin.statistic.toggle');
 
 });
 

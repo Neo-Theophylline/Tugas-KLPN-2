@@ -1,9 +1,10 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
-    <li class="nav-item {{ request()->is('adminpanel/dashboard') ? 'active' : '' }}">
-      <a class="nav-link" href="dashboard">
+
+        <li class="nav-item {{ request()->is('adminpanel/users') ? 'active' : '' }}">
+      <a class="nav-link" href="users">
         <i class="typcn typcn-device-desktop menu-icon"></i>
-        <span class="menu-title">Dashboard</span>
+        <span class="menu-title">User</span>
       </a>
     </li>
 
@@ -38,21 +39,21 @@
     <li class="nav-item {{ request()->is('adminpanel/testimonial') ? 'active' : '' }}">
       <a class="nav-link" href="testimonial">
         <i class="typcn typcn-message menu-icon"></i>
-        <span class="menu-title">Testimonials</span>
+        <span class="menu-title">Testimonial</span>
       </a>
     </li>
 
     <li class="nav-item {{ request()->is('adminpanel/history') ? 'active' : '' }}">
       <a class="nav-link" href="history">
         <i class="typcn typcn-book menu-icon"></i>
-        <span class="menu-title">Sejarah</span>
+        <span class="menu-title">History</span>
       </a>
     </li>
 
     <li class="nav-item {{ request()->is('adminpanel/worker') ? 'active' : '' }}">
       <a class="nav-link" href="worker">
         <i class="typcn typcn-group-outline menu-icon"></i>
-        <span class="menu-title">Tenaga Kerja</span>
+        <span class="menu-title">Worker</span>
       </a>
     </li>
 
@@ -66,7 +67,7 @@
     <li class="nav-item {{ request()->is('adminpanel/media') ? 'active' : '' }}">
       <a class="nav-link" href="media">
         <i class="typcn typcn-social-facebook-circular menu-icon"></i>
-        <span class="menu-title">Media Socials</span>
+        <span class="menu-title">Media Social</span>
       </a>
     </li>
 
@@ -77,11 +78,12 @@
       </a>
     </li>
 
-    <li class="nav-item {{ request()->is('adminpanel/users') ? 'active' : '' }}">
-      <a class="nav-link" href="users">
-        <i class="typcn typcn-mail menu-icon"></i>
-        <span class="menu-title">Users</span>
+    <li class="nav-item {{ request()->is('adminpanel/statistic') ? 'active' : '' }}">
+      <a class="nav-link" href="statistic">
+        <i class="typcn typcn-device-desktop menu-icon"></i>
+        <span class="menu-title">Statistic</span>
       </a>
     </li>
+
   </ul>
 </nav>

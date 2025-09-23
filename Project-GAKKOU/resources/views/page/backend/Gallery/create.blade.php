@@ -7,22 +7,24 @@
                 <form class="forms-sample" action="/adminpanel/gallery/store" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputName1">Title</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Double Space for New Line" name="title">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail3">Description</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Double Space for New Line" name="description">
+                        <label>Description</label>
+                        <input type="text" class="form-control" name="description">
                     </div>
-                      <div class="form-group">
+                    <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" id="fileInput" style="display: none;" name="photo">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <input type="file" id="fileInput" style="display:none;" name="photo">
+                        <div class="input-group col-xs-12 mb-2">
+                            <input type="text" class="form-control file-upload-info" disabled>
                             <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-primary" type="button"
-                                    onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
+                        </div>
+                        <div class="mt-2" style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
+                            <img id="preview" src="" style="max-width:100%; max-height:100%; display:none;" alt="Preview Photo">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

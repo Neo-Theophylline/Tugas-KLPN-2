@@ -39,6 +39,13 @@
 </head>
 
 <body>
+    <style>
+  /* Custom style untuk link aktif di footer */
+  .footer-links ul li a.active {
+      color: #D9232D !important;
+      font-weight: bold; /* optional biar lebih terlihat */
+  }
+</style>
     @include('layout.frontend.navbar')
     @yield('content')
     @include('layout.frontend.footer')

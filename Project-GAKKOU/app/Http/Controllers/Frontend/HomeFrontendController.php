@@ -17,7 +17,7 @@ class HomeFrontendController extends Controller
         $abouts = About::where('is_active', 'active')->get();
         $partners = Partner::where('is_active', 'active')->get();
         $galleries = Gallery::where('is_active', 'active')->get();
-
+        
         return view('page.frontend.home.index', compact('heroes', 'abouts', 'partners', 'galleries'));
     }
 }

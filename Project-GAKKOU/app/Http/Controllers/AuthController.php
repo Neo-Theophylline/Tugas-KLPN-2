@@ -17,20 +17,13 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
+            
         ]);
-
-        if ($credentials['email'] === "eka@gmail.com" && $credentials['password'] === "rendra") {
-            // Simpan identitas superadmin di session
-            $request->session()->put('super_admin', true);
-
-            return redirect()->intended('adminpanel/dashboard');
-        }
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             $user = Auth::user();
-
 
             if ($user->is_active !== 'active') {
                 Auth::logout();
@@ -39,7 +32,6 @@ class AuthController extends Controller
                 ])->withInput();
             }
 
-
             return redirect()->intended('adminpanel/dashboard');
         }
 
@@ -47,7 +39,6 @@ class AuthController extends Controller
             'email' => 'Email atau password salah.',
         ])->withInput();
     }
-
 
     public function logout(Request $request)
     {
