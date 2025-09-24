@@ -9,22 +9,24 @@
 
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" class="form-control" name="title">
-                    </div>
-                    <div class="form-group">
-                        <label>Pre-description</label>
-                        <input type="text" class="form-control" name="prescription">
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <input type="text" class="form-control" name="description">
+                        <input type="text" class="form-control" name="title" placeholder="Enter the about section title">
                     </div>
 
                     <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" id="fileInput" style="display:none;" name="photo">
+                        <label>Pre-description</label>
+                        <input type="text" class="form-control" name="prescription" placeholder="Enter the short pre-description">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" name="description" placeholder="Enter the main description">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input type="file" id="fileInput" style="display:none;" name="photo" onchange="previewImage(event)">
                         <div class="input-group col-xs-12 mb-2">
-                            <input type="text" class="form-control file-upload-info" disabled>
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="No file chosen">
                             <span class="input-group-append">
                                 <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
@@ -40,4 +42,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('preview');
+            const fileInfo = document.querySelector('.file-upload-info');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+                fileInfo.value = input.files[0].name;
+            }
+        }
+    </script>
 @endsection

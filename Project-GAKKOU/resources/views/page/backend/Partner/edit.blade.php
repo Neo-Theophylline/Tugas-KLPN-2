@@ -4,37 +4,44 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Edit Partner</h4>
-                <form class="forms-sample" action="{{ route('admin.partner.update', $partners->id) }}" method="post" enctype="multipart/form-data">
+                <form class="forms-sample" action="{{ route('admin.partner.update', $partners->id) }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" name="name" value="{{ old('name', $partners->name) }}">
+                        <input type="text" class="form-control" name="name" placeholder="Enter partner name"
+                            value="{{ old('name', $partners->name) }}">
                     </div>
 
                     <div class="form-group">
                         <label>Position</label>
-                        <input type="text" class="form-control" name="position" value="{{ old('position', $partners->position) }}">
+                        <input type="text" class="form-control" name="position" placeholder="Enter position"
+                            value="{{ old('position', $partners->position) }}">
                     </div>
 
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" name="description" value="{{ old('description', $partners->description) }}">
+                        <input type="text" class="form-control" name="description" placeholder="Enter description"
+                            value="{{ old('description', $partners->description) }}">
                     </div>
 
                     <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" id="fileInput" style="display:none;" name="photo" onchange="previewImage(event)">
+                        <label>Photo</label>
+                        <input type="file" id="fileInput" style="display:none;" name="photo">
                         <div class="input-group col-xs-12 mb-2">
-                            <input type="text" class="form-control file-upload-info" disabled>
+                            <input type="text" class="form-control file-upload-info" placeholder="Choose photo" readonly>
                             <span class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
                         </div>
-                        <div class="mt-2" style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
-                            <img id="preview" src="{{ $partners->photo && file_exists(public_path('storage/' . $partners->photo)) ? asset('storage/' . $partners->photo) : '' }}" 
-                                style="max-width:100%; max-height:100%; display:{{ $partners->photo && file_exists(public_path('storage/' . $partners->photo)) ? 'block' : 'none' }};" 
+                        <div class="mt-2"
+                            style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
+                            <img id="preview"
+                                src="{{ $partners->photo && file_exists(public_path('storage/' . $partners->photo)) ? asset('storage/' . $partners->photo) : '' }}"
+                                style="max-width:100%; max-height:100%; display:{{ $partners->photo && file_exists(public_path('storage/' . $partners->photo)) ? 'block' : 'none' }};"
                                 alt="Preview Photo">
                         </div>
                     </div>
@@ -45,4 +52,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const fileNameInput = document.querySelector('.file-upload-info');
+            const preview = document.getElementById('preview');
+
+            if (file) {
+                fileNameInput.value = file.name;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            } else {
+                fileNameInput.value = '';
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        });
+    </script>
 @endsection

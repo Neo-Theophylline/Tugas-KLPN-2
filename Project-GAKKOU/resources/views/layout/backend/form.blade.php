@@ -27,69 +27,8 @@
         </div>
     </div>
     <!-- container-scroller -->
-    <script>
-        function previewImage(event) {
-            const input = event.target;
-            const preview = document.getElementById('preview');
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        // ambil elemen
-        const fileInput = document.getElementById('fileInput');
-        const fileNameField = document.querySelector('.file-upload-info');
 
-        // saat file dipilih
-        fileInput.addEventListener('change', function() {
-            if (this.files && this.files.length > 0) {
-                fileNameField.value = this.files[0].name; // tampilkan nama file
-            } else {
-                fileNameField.value = "";
-            }
-        });
-    </script>
     <!-- base:js -->
-    <style>
-        .star {
-            font-size: 30px;
-            cursor: pointer;
-            color: lightgray;
-            transition: 0.2s;
-        }
-
-        .star.selected {
-            color: gold;
-        }
-
-        .star:hover {
-            transform: scale(1.2);
-        }
-    </style>
-
-    <script>
-        const stars = document.querySelectorAll('.star');
-        const starsInput = document.getElementById('stars');
-
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                let value = this.getAttribute('data-value');
-                starsInput.value = value;
-
-                // reset semua
-                stars.forEach(s => s.classList.remove('selected'));
-
-                // kasih warna sesuai value
-                for (let i = 0; i < value; i++) {
-                    stars[i].classList.add('selected');
-                }
-            });
-        });
-    </script>
-
     <script src="{{ asset('assetsbackend/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
@@ -105,31 +44,9 @@
     <!-- Custom js for this page-->
     <script src="{{ asset('assetsbackend/js/dashboard.js') }}"></script>
     <!-- End custom js for this page-->
-    <script>
-function previewImage(event) {
-    const input = event.target;
-    const preview = document.getElementById('preview');
-    const fileNameInput = document.querySelector('.file-upload-info');
 
-    if (input.files && input.files[0]) {
-        // Tampilkan nama file di input text
-        fileNameInput.value = input.files[0].name;
-
-        // Tampilkan preview gambar
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        }
-        reader.readAsDataURL(input.files[0]);
-    } else {
-        fileNameInput.value = '';
-        preview.src = '';
-        preview.style.display = 'none';
-    }
-}
-</script>
-
+    {{-- tambahan biar setiap halaman bisa masukin script custom --}}
+    @stack('scripts')
 </body>
 
 </html>

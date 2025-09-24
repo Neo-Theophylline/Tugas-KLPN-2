@@ -10,30 +10,38 @@
 
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" class="form-control" name="title" value="{{ old('title', $abouts->title) }}">
-                    </div>
-                    <div class="form-group">
-                        <label>Pre-Description</label>
-                        <input type="text" class="form-control" name="prescription" value="{{ old('prescription', $abouts->prescription) }}">
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <input type="text" class="form-control" name="description" value="{{ old('description', $abouts->description) }}">
+                        <input type="text" class="form-control" name="title" placeholder="Enter the about section title"
+                            value="{{ old('title', $abouts->title) }}">
                     </div>
 
                     <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" id="fileInput" style="display:none;" name="photo">
+                        <label>Pre-Description</label>
+                        <input type="text" class="form-control" name="prescription" placeholder="Enter the short pre-description"
+                            value="{{ old('prescription', $abouts->prescription) }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" name="description" placeholder="Enter the main description"
+                            value="{{ old('description', $abouts->description) }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input type="file" id="fileInput" style="display:none;" name="photo" onchange="previewImage(event)">
                         <div class="input-group col-xs-12 mb-2">
-                            <input type="text" class="form-control file-upload-info" disabled>
+                            <input type="text" class="form-control file-upload-info" 
+                                value="{{ $abouts->photo ? basename($abouts->photo) : '' }}" disabled placeholder="No file chosen">
                             <span class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click();">Upload</button>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="document.getElementById('fileInput').click();">Upload</button>
                             </span>
                         </div>
                         <div class="mt-2" style="width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
-                            <img id="preview" src="{{ $abouts->photo && file_exists(public_path('storage/' . $abouts->photo)) ? asset('storage/' . $abouts->photo) : '' }}" 
-                                style="max-width:100%; max-height:100%; display:{{ $abouts->photo && file_exists(public_path('storage/' . $abouts->photo)) ? 'block' : 'none' }};" 
-                                alt="Preview Photo">
+                            <img id="preview"
+                                 src="{{ $abouts->photo && file_exists(public_path('storage/' . $abouts->photo)) ? asset('storage/' . $abouts->photo) : '' }}"
+                                 style="max-width:100%; max-height:100%; {{ $abouts->photo && file_exists(public_path('storage/' . $abouts->photo)) ? '' : 'display:none;' }}"
+                                 alt="Preview Photo">
                         </div>
                     </div>
 
@@ -43,4 +51,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('preview');
+            const fileInfo = document.querySelector('.file-upload-info');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+                fileInfo.value = input.files[0].name;
+            }
+        }
+    </script>
 @endsection
