@@ -1,4 +1,32 @@
 @extends('layout.backend.app')
+@section('css')
+    .img-gallery {
+        width: 82px;         
+        height: 132px;       
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    .table td img {
+        width: 82px !important;   
+        height: 132px !important; 
+        object-fit: cover !important;
+        display: block; 
+        margin: 0 auto; 
+    }
+
+
+    .img-gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;    /* auto crop isi cover */
+        border-radius: 0 !important;
+        display: block;
+    }
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -19,9 +47,12 @@
                                 <tr>
                                     <td class="align-middle">1</td>
                                     <td class="align-middle">
-                                        <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
-                                            src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
-                                    </td>
+                                        <div class="img-gallery">
+                                            <img width="82" height="132"
+                                                src="{{ asset('storage/' . $hero->photo) }}" 
+                                                alt="Photo">
+                                        </div>
+                                    </td>   
                                     <td class="align-middle text-wrap">
                                         {{ $hero->title }}
 
