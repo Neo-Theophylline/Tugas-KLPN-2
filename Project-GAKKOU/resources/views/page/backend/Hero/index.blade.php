@@ -21,11 +21,15 @@
                                         style="max-width: 80px; word-break: break-word; overflow-wrap: break-word; white-space: normal;">
                                         {{ $hero->id }}
                                     </td>
-
-                                    <td class="align-middle">
-                                        <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
-                                            src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
+                                    <td class="align-middle" style="width:100px; text-align:center;">
+                                        @if ($hero->photo && file_exists(public_path('storage/' . $hero->photo)))
+                                            <img style="object-fit:cover; width:auto; height:100px; border-radius:0;"
+                                                src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
+                                        @else
+                                            <span>Belum ada foto</span>
+                                        @endif
                                     </td>
+
 
                                     <td class="align-middle"
                                         style="max-width: 150px; word-break: break-word; overflow-wrap: break-word; white-space: normal;">
@@ -87,29 +91,29 @@
         </div>
     </div>
     <script>
-document.querySelectorAll('.toggle-status').forEach((el) => {
-    el.addEventListener('change', function() {
-        let status = this.checked;
-        let id = this.dataset.id;
+        document.querySelectorAll('.toggle-status').forEach((el) => {
+            el.addEventListener('change', function() {
+                let status = this.checked;
+                let id = this.dataset.id;
 
-        fetch("{{ route('admin.hero.toggle') }}", {
-            method: "POST",
-            headers: {
-                "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id: id,
-                status: status
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                console.log("Hero status updated!");
-            }
+                fetch("{{ route('admin.hero.toggle') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            id: id,
+                            status: status
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log("Hero status updated!");
+                        }
+                    });
+            });
         });
-    });
-});
-</script>
+    </script>
 @endsection

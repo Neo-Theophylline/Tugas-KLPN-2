@@ -22,7 +22,7 @@
                                         {{ $hero->id }}
                                     </td>
                                     <td class="align-middle">
-                                        <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
+                                        <img style="object-fit:cover; width:100px; height:100px; border-radius:0;"
                                             src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
                                     </td>
                                     <td class="align-middle text-wrap">

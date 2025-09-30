@@ -24,7 +24,7 @@
 
                                     <td class="align-middle" style="width:100px; text-align:center;">
                                         @if ($hero->photo && file_exists(public_path('storage/' . $hero->photo)))
-                                            <img style="object-fit:cover; width:auto; height:100px; border-radius:0;"
+                                            <img style="object-fit:cover; width:100px; height:100px; border-radius:0;"
                                                 src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
                                         @else
                                             <span>Belum ada foto</span>
