@@ -14,7 +14,7 @@ class HomeFrontendController extends Controller
     public function index()
     {
         $heroes = Hero::where('is_active', 'active')->get();
-        $abouts = About::where('is_active', 'active')->get();
+        $abouts = About::where('is_active', 'active')->limit(1)->get();
         $partners = Partner::where('is_active', 'active')->get();
         $galleries = Gallery::where('is_active', 'active')->get();
         

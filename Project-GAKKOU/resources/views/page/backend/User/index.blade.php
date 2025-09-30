@@ -1,4 +1,13 @@
 @extends('layout.backend.app')
+@section('css')
+    .table td img {
+        width: 100px !important;
+        height: 100px !important;
+        object-fit: cover !important;
+        display: block;
+        margin: 0 auto;
+    }
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -24,7 +33,7 @@
 
                                     <td class="align-middle" style="width:100px; text-align:center;">
                                         @if ($hero->photo && file_exists(public_path('storage/' . $hero->photo)))
-                                            <img style="object-fit:cover; width:auto; height:100px; border-radius:0;"
+                                            <img style="object-fit:cover; width:100px; height:100px; border-radius:0;"
                                                 src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
                                         @else
                                             <span>Belum ada foto</span>

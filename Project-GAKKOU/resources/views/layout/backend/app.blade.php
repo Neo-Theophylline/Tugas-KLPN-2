@@ -11,6 +11,33 @@
     <link rel="stylesheet" href="{{ asset('assetsbackend/vendors/css/vendor.bundle.base.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsbackend/css/vertical-layout-light/style.css') }}">
     <link rel="shortcut icon" href="{{ asset('assetsbackend/images/favicon.png') }}">
+
+<style>
+    @yield('css')
+
+    .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: lightgray;
+            transition: 0.2s;
+        }
+
+        .star.selected {
+            color: gold;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        .profile-pic{
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+        }
+</style>
+
 </head>
 
 <body>
@@ -38,20 +65,7 @@
     <!-- container-scroller -->
 
     <style>
-        .star {
-            font-size: 30px;
-            cursor: pointer;
-            color: lightgray;
-            transition: 0.2s;
-        }
-
-        .star.selected {
-            color: gold;
-        }
-
-        .star:hover {
-            transform: scale(1.2);
-        }
+        
     </style>
 
     <script>

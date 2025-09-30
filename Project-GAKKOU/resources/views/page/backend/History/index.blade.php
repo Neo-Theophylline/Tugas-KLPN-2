@@ -1,4 +1,13 @@
 @extends('layout.backend.app')
+@section('css')
+    .table td img {
+        width: 126px !important;
+        height: 160px !important;
+        object-fit: cover !important;
+        display: block;
+        margin: 0 auto;
+    }
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -22,7 +31,7 @@
                                         {{ $hero->id }}
                                     </td>
                                     <td class="align-middle">
-                                        <img style="object-fit:cover; border-radius:0; width:auto; height:100px;"
+                                        <img style="object-fit:cover; width:100px; height:100px; border-radius:0;"
                                             src="{{ asset('storage/' . $hero->photo) }}" alt="Photo">
                                     </td>
                                     <td class="align-middle text-wrap">
