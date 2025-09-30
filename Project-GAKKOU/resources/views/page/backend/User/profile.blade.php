@@ -1,5 +1,13 @@
 @extends('layout.backend.app')
-
+@section('css')
+    .profile-picture {
+        width: 120px !important;
+        height: 120px !important;
+        object-fit: cover !important;
+        display: block;
+        margin: 0 auto;
+    }
+@endsection
 @section('content')
 <main class="main">
     <div class="container mt-5">
@@ -7,7 +15,7 @@
             <div class="row align-items-center">
                 <!-- Foto Profil -->
                 <div class="col-md-3 text-center mb-3 mb-md-0">
-                    <img src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('assetsbackend/images/faces/face5.jpg') }}" 
+                    <img class="profile-picture" src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('assetsbackend/images/faces/face5.jpg') }}" 
                          alt="Profile Picture"  width="120" height="120">
                 </div>
 
