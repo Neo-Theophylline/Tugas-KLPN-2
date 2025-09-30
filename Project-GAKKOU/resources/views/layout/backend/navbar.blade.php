@@ -19,7 +19,7 @@
       <!-- Foto + Nama User -->
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link">
-<img src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('assetsbackend/images/faces/face5.jpg') }}" alt="profile"/>
+<img class="profile-pic" src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('assetsbackend/images/faces/face5.jpg') }}" alt="profile"/>
           <span class="nav-profile-name">{{ Auth::user()->name ?? 'Guest' }}</span>
         </a>
       </li>

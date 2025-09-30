@@ -1,4 +1,13 @@
 @extends('layout.backend.app')
+@section('css')
+    .table td img {
+        width: 126px !important;
+        height: 160px !important;
+        object-fit: cover !important;
+        display: block;
+        margin: 0 auto;
+    }
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">

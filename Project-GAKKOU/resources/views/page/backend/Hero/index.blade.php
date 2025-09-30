@@ -1,4 +1,23 @@
 @extends('layout.backend.app')
+@section('css')
+.hero-photo {
+    width: 150px !important;   /* lebih lebar, biar sesuai landscape */
+    height: 50px !important;   /* proporsional 16:9 */
+    object-fit: cover !important;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+    .table td img {
+        width: 150px !important;
+        height: 60px !important;
+        object-fit: cover !important;
+        display: block;
+        margin: 0 auto;
+    }
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
