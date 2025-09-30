@@ -144,7 +144,26 @@
             reader.readAsDataURL(event.target.files[0]);
         }
     </script>
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$('#contactForm').submit(function(e){
+    e.preventDefault(); // mencegah refresh
+    var formData = $(this).serialize();
+    $.ajax({
+        url: $(this).attr('action'),
+        method: 'POST',
+        data: formData,
+        success: function(response){
+            $('#response').html('<p>Data berhasil dikirim!</p>');
+            $('#contactForm')[0].reset(); // reset form
+        },
+        error: function(xhr){
+            $('#response').html('<p>Terjadi kesalahan!</p>');
+        }
+    });
+});
+</script>
 </body>
 
 </html>

@@ -34,11 +34,11 @@
               <div class="col-lg-4 col-md-4 footer-links d-flex flex-column align-items-center">
                   <h4>Our Services</h4>
                   <ul>
-                      <li><a>Web Design</a></li>
-                      <li><a>Web Development</a></li>
-                      <li><a>Product Management</a></li>
-                      <li><a>Marketing</a></li>
-                      <li><a>Graphic Design</a></li>
+                      <li><a>Admissions / PPDB</a></li>
+                      <li><a>Academic Programs</a></li>
+                      <li><a>Payment Information</a></li>
+                      <li><a>Library Access</a></li>
+                      <li><a>Payment Information</a></li>
                   </ul>
               </div>
 
